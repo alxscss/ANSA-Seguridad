@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANSA Seguridad Privada</title>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="top-bar py-2 text-white">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="social-icons">
+                <a href="#" class="text-white-50 me-3 text-decoration-none"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="text-white-50 me-3 text-decoration-none"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="text-white-50 text-decoration-none"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+            <div class="contact-info small d-none d-md-block">
+                <span class="me-3"><i class="fa-solid fa-phone me-1"></i> 55 38 72 35 64</span>
+                <span><i class="fa-solid fa-envelope me-1"></i> fersabater@ansaseguridad.com.mx</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+    <img src="img/logo-ansa.jpg" alt="ANSA Seguridad Privada" style="height: 45px; width: auto;" class="me-2">
+    <span class="fw-bold fs-4">ANSA Seguridad</span>
+</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+                <ul class="navbar-nav fw-medium align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#nosotros">Nosotros</a></li>
+                    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="servicios.html" id="navServicios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Servicios
+    </a>
+    <ul class="dropdown-menu border-0 shadow" aria-labelledby="navServicios">
+        <li><a class="dropdown-item py-2" href="servicios.html#intramuros"><i class="fa-solid fa-building-user me-2"></i> Intramuros</a></li>
+        <li><a class="dropdown-item py-2" href="servicios.html#electronica"><i class="fa-solid fa-microchip me-2"></i> División Electrónica</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item py-2" href="servicios.html#personal"><i class="fa-solid fa-user-check me-2"></i> Nuestro Personal</a></li>
+    </ul>
+</li>
+                    <li class="nav-item"><a class="nav-link" href="empleo.html">Bolsa de Trabajo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a href="contacto.html#cotizacion" class="btn btn-primary rounded-pill px-4 text-white">Cotizar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-5 text-white text-center" style="background-color: #1a1a1a;">
+        <div class="container py-4">
+            <h1 class="display-5 fw-bold">Bolsa de Trabajo</h1>
+            <div class="title-line mx-auto bg-white mb-3" style="width: 80px; height: 4px;"></div>
+            <p class="lead">Únete a la empresa líder en seguridad privada. Buscamos talento como tú.</p>
+        </div>
+    </header>
+
+<section class="py-5 bg-white">
+        <div class="container-fluid px-lg-5"> <div class="row g-4 align-items-start justify-content-center">
+                
+                <div class="col-lg-3 text-center d-none d-lg-block">
+                    <img src="img/guardia-ejecutivo.png" alt="Guardia ANSA" class="img-fluid" style="max-height: 520px; width: auto; filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.1));">
+                </div>
+
+                <div class="col-12 col-lg-4">
+                    <div class="px-lg-3 pt-2"> <h3 class="fw-bold mb-3" style="color: #1a1a1a;">¿Por qué trabajar en ANSA Seguridad?</h3>
+                        <p class="text-muted mb-4">
+                            Ofrecemos un entorno laboral estable, profesional y con oportunidades de crecimiento real. Al integrarte a nuestra fuerza operativa obtienes un empleo formal con respaldo institucional.
+                        </p>
+                        
+                        <div class="mb-4">
+                            <ul class="list-unstyled mb-0 text-muted">
+                                <li class="mb-2 d-flex align-items-center">
+                                    <i class="fa-solid fa-circle-check text-success me-3"></i> Prestaciones de ley desde el primer día.
+                                </li>
+                                <li class="mb-2 d-flex align-items-center">
+                                    <i class="fa-solid fa-circle-check text-success me-3"></i> Pagos puntuales y uniformes gratuitos.
+                                </li>
+                                <li class="mb-2 d-flex align-items-center">
+                                    <i class="fa-solid fa-circle-check text-success me-3"></i> Capacitación certificada y ambiente estable.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="accordion mb-4" id="accordionRequisitos">
+                            <div class="accordion-item border-0 shadow-sm rounded-3">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-bold rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePerfil" style="background-color: #f8f9fa; color: #1a1a1a;">
+                                        <i class="fa-solid fa-clipboard-user me-3 text-secondary"></i> Ver Perfil Requerido (Filtro Oficial)
+                                    </button>
+                                </h2>
+                                <div id="collapsePerfil" class="accordion-collapse collapse" data-bs-parent="#accordionRequisitos">
+                                    <div class="accordion-body bg-white text-muted small p-4" style="line-height: 1.6;">
+                                        <h6 class="fw-bold text-dark mb-2">Género Masculino:</h6>
+                                        <ul class="ps-3 mb-3">
+                                            <li>Mexicano por nacimiento.</li>
+                                            <li>Estatura de 1.65 MTS. mínimo.</li>
+                                            <li>Edad entre 25 a 50 años.</li>
+                                            <li>Educación básica media terminada.</li>
+                                            <li>Cartilla del SMN y Credencial de Elector.</li>
+                                        </ul>
+
+                                        <h6 class="fw-bold text-dark mb-2">Género Femenino:</h6>
+                                        <ul class="ps-3 mb-0">
+                                            <li>Mexicana por nacimiento.</li>
+                                            <li>Estatura de 1.60 MTS. mínimo.</li>
+                                            <li>Edad entre 25 a 40 años.</li>
+                                            <li>Educación básica terminada y Credencial.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-secondary border-0 small mb-0 bg-light text-secondary" role="alert" style="line-height: 1.5; border-left: 4px solid #1a1a1a !important;">
+                            <i class="fa-solid fa-circle-info me-2"></i> 
+                            El área de Recursos Humanos realizará una verificación estricta de datos, domicilio y antecedentes.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-5 mt-4 mt-lg-0">
+                    <div class="card shadow-sm border-0 rounded-4 overflow-hidden" style="background-color: #f8f9fa;">
+                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc7GU-cGTuyTsOd2YH4n8k5_EDFutf5Q0nCzhOGI_z30kfWEg/viewform?embedded=true" width="640" height="3768" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+     <section class="py-5" style="background-color: #f1f4f8;">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-4">
+                    <h2 class="fw-bold" style="color: #1a1a1a;">¿Listo para proteger tu negocio?</h2>
+                    <p class="text-muted">Déjanos tus datos y un asesor experto te contactará de inmediato.</p>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4 p-md-5">
+                            <form action="#" method="POST">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold text-secondary small">Nombre Completo *</label>
+                                        <input type="text" class="form-control bg-light" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold text-secondary small">Correo Electrónico *</label>
+                                        <input type="email" class="form-control bg-light" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold text-secondary small">Teléfono / Celular *</label>
+                                        <input type="tel" class="form-control bg-light" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold text-secondary small">Servicio de Interés</label>
+                                        <select class="form-select bg-light">
+                                            <option selected>Selecciona una opción...</option>
+                                            <option value="Industrial">Seguridad Industrial</option>
+                                            <option value="Empresarial">Seguridad Empresarial</option>
+                                            <option value="Residencial">Seguridad Residencial</option>
+                                            <option value="Otro">Otro</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label fw-bold text-secondary small">Mensaje</label>
+                                        <textarea class="form-control bg-light" rows="4" placeholder="Cuéntanos un poco sobre tus necesidades..."></textarea>
+                                    </div>
+
+                                    <div class="mb-3 d-flex justify-content-center">
+    <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqy9H71UMIEGNQ_MXjiZKhI"></div>
+</div>
+                                    <div class="col-12 mt-4 text-center">
+                                        <button type="submit" class="btn btn-primary rounded-pill px-5 py-3 fw-bold w-100">Enviar Mensaje</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4 class="fw-bold mb-3 text-white"><i class="fa-solid fa-shield-halved me-2"></i>ANSA Seguridad</h4>
+                    <p class="text-white-50 small">
+                        ANSA Seguridad Privada, S.A. de C.V. Brindamos soluciones integrales de seguridad para proteger su patrimonio, personal y operaciones con el más alto nivel de profesionalismo y legalidad.
+                    </p>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-3">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none footer-link">Inicio</a></li>
+                        <li class="mb-2"><a href="index.html#nosotros" class="text-white-50 text-decoration-none footer-link">Nosotros</a></li>
+                        <li class="mb-2"><a href="servicios.html" class="text-white-50 text-decoration-none footer-link">Servicios</a></li>
+                        <li class="mb-2"><a href="empleo.html" class="text-white-50 text-decoration-none footer-link">Bolsa de Trabajo</a></li>
+                        <li class="mb-2"><a href="contacto.html" class="text-white-50 text-decoration-none footer-link">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-3">Contacto Directo</h5>
+                    <ul class="list-unstyled text-white-50 small">
+                        <li class="mb-3 d-flex">
+                            <i class="fa-solid fa-location-dot mt-1 me-3"></i>
+                            <span>Calz. Legaria No. 779 Int. 1, Col. Irrigación, C.P. 11500, CDMX.</span>
+                        </li>
+                        <li class="mb-3 d-flex">
+                            <i class="fa-solid fa-phone mt-1 me-3"></i>
+                            <span>55 38 72 35 64 / 65</span>
+                        </li>
+                        <li class="mb-3 d-flex">
+                            <i class="fa-solid fa-envelope mt-1 me-3"></i>
+                            <span>fersabater@ansaseguridad.com.mx</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-secondary mt-4 mb-3">
+            <div class="text-center text-white-50 small">
+                &copy; 2026 ANSA Seguridad Privada. Todos los derechos reservados. <br>
+                Desarrollado por Emanuel Casas.
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/525500000000?text=Hola,%20quisiera%20información%20sobre%20sus%20servicios" class="whatsapp-btn" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
+</body>
+</html>

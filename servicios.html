@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANSA Seguridad Privada</title>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="top-bar py-2 text-white">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="social-icons">
+                <a href="#" class="text-white-50 me-3 text-decoration-none"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="text-white-50 me-3 text-decoration-none"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="text-white-50 text-decoration-none"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+            <div class="contact-info small d-none d-md-block">
+                <span class="me-3"><i class="fa-solid fa-phone me-1"></i> 55 38 72 35 64</span>
+                <span><i class="fa-solid fa-envelope me-1"></i> fersabater@ansaseguridad.com.mx</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+    <img src="img/logo-ansa.jpg" alt="ANSA Seguridad Privada" style="height: 45px; width: auto;" class="me-2">
+    <span class="fw-bold fs-4">ANSA Seguridad</span>
+</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+                <ul class="navbar-nav fw-medium align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#nosotros">Nosotros</a></li>
+                    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="servicios.html" id="navServicios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Servicios
+    </a>
+    <ul class="dropdown-menu border-0 shadow" aria-labelledby="navServicios">
+        <li><a class="dropdown-item py-2" href="servicios.html#intramuros"><i class="fa-solid fa-building-user me-2"></i> Intramuros</a></li>
+        <li><a class="dropdown-item py-2" href="servicios.html#electronica"><i class="fa-solid fa-microchip me-2"></i> División Electrónica</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item py-2" href="servicios.html#personal"><i class="fa-solid fa-user-check me-2"></i> Nuestro Personal</a></li>
+    </ul>
+</li>
+                    <li class="nav-item"><a class="nav-link" href="empleo.html">Bolsa de Trabajo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a href="contacto.html#cotizacion" class="btn btn-primary rounded-pill px-4 text-white">Cotizar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-5 text-white text-center" style="background-color: #1a1a1a;">
+        <div class="container py-4">
+            <h1 class="display-5 fw-bold">Portafolio Integral de Seguridad</h1>
+            <div class="title-line mx-auto bg-white mb-3" style="width: 80px; height: 4px;"></div>
+            <p class="lead">Excelencia operativa respaldada por tecnología y mando especializado.</p>
+        </div>
+    </header>
+
+    <section id="intramuros" class="py-5 bg-white">
+        <div class="container py-4">
+            <div class="row g-5 align-items-start">
+                
+                <div class="col-lg-4">
+                    <span class="text-uppercase small fw-bold text-secondary tracking-wider">División Operativa</span>
+                    <h2 class="fw-bold mt-1 mb-4" style="color: #1a1a1a;">Seguridad Intramuros y Canina</h2>
+                    <p class="text-muted mb-4">
+                        Proporcionamos elementos perfectamente capacitados y equipados para mitigar riesgos específicos en diferentes entornos. Seleccione un sector:
+                    </p>
+                    
+                    <div class="position-relative">
+                        <button class="btn btn-dark d-lg-none position-absolute top-50 start-0 translate-middle-y rounded-circle shadow-sm" id="scrollLeftBtn" style="opacity: 0; display: none; z-index: 10; width: 40px; height: 40px; left: -10px !important;">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+
+                        <div class="d-flex flex-row flex-lg-column overflow-x-auto mb-4 pb-2" id="subservices-menu" style="scrollbar-width: none; scroll-behavior: smooth;">
+                            <button class="list-group-item list-group-item-action active p-3 border-0 rounded-3 me-2 mb-lg-2 flex-shrink-0 d-flex align-items-center shadow-sm" data-sector="corporativo" style="width: auto;">
+                                <i class="fa-solid fa-building me-3 fs-5"></i> <span>Corporativos</span>
+                            </button>
+                            <button class="list-group-item list-group-item-action p-3 border-0 rounded-3 me-2 mb-lg-2 flex-shrink-0 d-flex align-items-center shadow-sm" data-sector="comercio" style="width: auto;">
+                                <i class="fa-solid fa-shop me-3 fs-5"></i> <span>Comercio</span>
+                            </button>
+                            <button class="list-group-item list-group-item-action p-3 border-0 rounded-3 me-2 mb-lg-2 flex-shrink-0 d-flex align-items-center shadow-sm" data-sector="industria" style="width: auto;">
+                                <i class="fa-solid fa-industry me-3 fs-5"></i> <span>Industria</span>
+                            </button>
+                            <button class="list-group-item list-group-item-action p-3 border-0 rounded-3 me-2 mb-lg-2 flex-shrink-0 d-flex align-items-center shadow-sm" data-sector="educativo" style="width: auto;">
+                                <i class="fa-solid fa-graduation-cap me-3 fs-5"></i> <span>Centros Educativos</span>
+                            </button>
+                            <button class="list-group-item list-group-item-action p-3 border-0 rounded-3 me-2 mb-lg-2 flex-shrink-0 d-flex align-items-center shadow-sm" data-sector="transporte" style="width: auto;">
+                                <i class="fa-solid fa-bus me-3 fs-5"></i> <span>Transporte Público</span>
+                            </button>
+                            <button class="list-group-item list-group-item-action p-3 border-0 rounded-3 me-2 mb-lg-2 flex-shrink-0 d-flex align-items-center shadow-sm" data-sector="residencial" style="width: auto;">
+                                <i class="fa-solid fa-house-chimney me-3 fs-5"></i> <span>Residencial</span>
+                            </button>
+                            <button class="list-group-item list-group-item-action p-3 border-0 rounded-3 me-2 mb-lg-2 flex-shrink-0 d-flex align-items-center shadow-sm" data-sector="canino" style="width: auto;">
+                                <i class="fa-solid fa-dog me-3 fs-5"></i> <span>Elementos Caninos (K9)</span>
+                            </button>
+                        </div>
+                        
+                        <button class="btn btn-dark d-lg-none position-absolute top-50 end-0 translate-middle-y rounded-circle shadow-sm" id="scrollRightBtn" style="opacity: 0.9; z-index: 10; width: 40px; height: 40px; right: -10px !important;">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 mt-4 mt-lg-0">
+                    <div class="card border-0 shadow rounded-4 overflow-hidden bg-light h-100" style="min-height: 500px;">
+                        
+                        <div id="sector-details-box" style="transition: opacity 0.3s ease; display: flex; flex-direction: column; height: 100%;">
+                            
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" 
+                                 id="details-image" 
+                                 alt="Seguridad Corporativa" 
+                                 class="d-none d-lg-block"
+                                 style="height: 300px; object-fit: cover; width: 100%;">
+
+                            <div class="card-body p-4 p-md-5 d-flex flex-column justify-content-between flex-grow-1">
+                                <div>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="p-3 bg-dark text-white rounded-3 me-3">
+                                            <i class="fa-solid fa-building fs-3" id="details-icon"></i>
+                                        </div>
+                                        <h4 class="fw-bold mb-0" id="details-title">Seguridad en Corporativos</h4>
+                                    </div>
+                                    <div class="text-muted small" id="details-text" style="line-height: 1.6;">
+                                        <p>Protección especializada para edificios administrativos, complejos de oficinas y centros de negocios. Nuestro personal se enfoca en:</p>
+                                        <ul class="ps-3 mt-2 mb-0">
+                                            <li>Control estricto de accesos peatonales y vehiculares.</li>
+                                            <li>Recepción y registro meticuloso de visitas y proveedores.</li>
+                                            <li>Rondines internos de verificación en áreas críticas y de TI.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="alert alert-secondary border-0 small mb-0 mt-4">
+                                    <i class="fa-solid fa-graduation-cap me-2 text-dark"></i>
+                                    <strong>Capacitación ANSA:</strong> Elementos instruidos bajo las consignas básicas de seguridad y alineados directamente al pliego de requerimientos del cliente.
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+<section id="electronica" class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="row align-items-center g-5 justify-content-center">
+                
+                <div class="col-12 col-lg-5 order-2 order-lg-1">
+                    <span class="text-uppercase small fw-bold text-secondary tracking-wider">Tecnología Aplicada</span>
+                    <h2 class="fw-bold mt-1 mb-4" style="color: #1a1a1a;">II. División Electrónica</h2>
+                    
+                    <p class="text-muted mb-4">
+                        Integramos ingeniería avanzada para potenciar la vigilancia física con herramientas tecnológicas de última generación. Nuestro equipo diseña e implementa soluciones a la medida para garantizar un control total de sus instalaciones.
+                    </p>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm p-4 h-100 rounded-4">
+                                <h6 class="fw-bold text-dark"><i class="fa-solid fa-camera me-2"></i> Instalación de CCTV</h6>
+                                <p class="small text-muted mb-0 mt-2">Monitoreo continuo mediante circuitos cerrados de televisión de alta definición con acceso remoto.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-0 shadow-sm p-4 h-100 rounded-4">
+                                <h6 class="fw-bold text-dark"><i class="fa-solid fa-location-crosshairs me-2"></i> Rastreo GPS</h6>
+                                <p class="small text-muted mb-0 mt-2">Localización satelital de activos y flotillas con reportes de ruta en tiempo real para logística segura.</p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card border-0 shadow-sm p-4 rounded-4" style="background-color: #f1f4f8;">
+                                <h6 class="fw-bold text-dark"><i class="fa-solid fa-shield-halved me-2"></i> Equipo de Seguridad Integral</h6>
+                                <p class="small text-muted mb-0 mt-2">Suministro, configuración e instalación de equipos de seguridad y sistemas de detección automatizados complementarios.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> <div class="col-5 col-lg-7 order-1 order-lg-2 d-none d-lg-block">
+                    <div id="carouselElectronica" class="carousel slide carousel-fade shadow-lg rounded-4 overflow-hidden" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="3000">
+                                <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80" class="d-block w-100" alt="CCTV y Monitoreo" style="height: 420px; object-fit: cover;">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="3000">
+                                <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=800&q=80" class="d-block w-100" alt="Rastreo GPS" style="height: 420px; object-fit: cover;">
+                            </div>
+                            <div class="carousel-item" data-bs-interval="3000">
+                                <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&w=800&q=80" class="d-block w-100" alt="Equipos de Seguridad" style="height: 420px; object-fit: cover;">
+                            </div>
+                        </div>
+                        
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselElectronica" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselElectronica" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+                </div> </div>
+        </div>
+    </section>
+
+    <section id="personal" class="py-5 bg-white">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Nuestro Personal</h2>
+                <div class="title-line mx-auto mb-3"></div>
+                <p class="text-muted">La columna vertebral de ANSA es su gente: profesional, uniformada y bajo mando estricto.</p>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-md-6">
+                    <div class="p-4 border rounded-4 bg-light h-100">
+                        <h4 class="fw-bold mb-4 text-center">Uniformes y Equipo</h4>
+                        <div class="row align-items-center">
+                            <div class="col-6 text-center">
+                                <img src="img/guardia-comando.png" class="img-fluid mb-2" style="max-height: 250px;" alt="Uniforme Comando">
+                                <h6 class="fw-bold small">Uniforme Comando</h6>
+                                <p class="x-small text-muted">Táctico para industria y patrullaje.</p>
+                            </div>
+                            <div class="col-6 text-center border-start">
+                                <img src="img/guardia-ejecutivo.png" class="img-fluid mb-2" style="max-height: 250px;" alt="Uniforme Ejecutivo">
+                                <h6 class="fw-bold small">Uniforme Ejecutivo</h6>
+                                <p class="x-small text-muted">Traje formal para corporativos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4 border rounded-4 h-100 bg-dark text-white">
+                        <h4 class="fw-bold mb-4 text-center">Responsabilidades del Personal</h4>
+                        <ul class="list-unstyled small">
+                            <li class="mb-3 d-flex"><i class="fa-solid fa-file-signature me-3 mt-1 text-secondary"></i> <span>Rinden un <strong>reporte de novedades diario</strong> anotando los pormenores de cada puesto.</span></li>
+                            <li class="mb-3 d-flex"><i class="fa-solid fa-bolt me-3 mt-1 text-secondary"></i> <span>Comunicación inmediata ante cualquier acto inseguro, incidente o accidente.</span></li>
+                            <li class="mb-3 d-flex"><i class="fa-solid fa-user-lock me-3 mt-1 text-secondary"></i> <span>Cumplimiento estricto del pliego de consignas específicas de cada cliente.</span></li>
+                            <li class="mb-0 d-flex"><i class="fa-solid fa-handshake-slash me-3 mt-1 text-secondary"></i> <span><strong>Relación laboral:</strong> ANSA asume toda responsabilidad patronal, liberando al cliente de cualquier carga legal.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+     <section class="py-5" style="background-color: #f1f4f8;">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-4">
+                    <h2 class="fw-bold" style="color: #1a1a1a;">¿Listo para proteger tu negocio?</h2>
+                    <p class="text-muted">Déjanos tus datos y un asesor experto te contactará de inmediato.</p>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4 p-md-5">
+                            <form action="#" method="POST">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold text-secondary small">Nombre Completo *</label>
+                                        <input type="text" class="form-control bg-light" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold text-secondary small">Correo Electrónico *</label>
+                                        <input type="email" class="form-control bg-light" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold text-secondary small">Teléfono / Celular *</label>
+                                        <input type="tel" class="form-control bg-light" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold text-secondary small">Servicio de Interés</label>
+                                        <select class="form-select bg-light">
+                                            <option selected>Selecciona una opción...</option>
+                                            <option value="Industrial">Seguridad Industrial</option>
+                                            <option value="Empresarial">Seguridad Empresarial</option>
+                                            <option value="Residencial">Seguridad Residencial</option>
+                                            <option value="Otro">Otro</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label fw-bold text-secondary small">Mensaje</label>
+                                        <textarea class="form-control bg-light" rows="4" placeholder="Cuéntanos un poco sobre tus necesidades..."></textarea>
+                                    </div>
+<div class="mb-3 d-flex justify-content-center">
+    <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqy9H71UMIEGNQ_MXjiZKhI"></div>
+</div>
+
+                                    <div class="col-12 mt-4 text-center">
+                                        <button type="submit" class="btn btn-primary rounded-pill px-5 py-3 fw-bold w-100">Enviar Mensaje</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+
+    <footer class="text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4 class="fw-bold mb-3 text-white"><i class="fa-solid fa-shield-halved me-2"></i>ANSA Seguridad</h4>
+                    <p class="text-white-50 small">
+                        ANSA Seguridad Privada, S.A. de C.V. Brindamos soluciones integrales de seguridad para proteger su patrimonio, personal y operaciones con el más alto nivel de profesionalismo y legalidad.
+                    </p>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-3">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none footer-link">Inicio</a></li>
+                        <li class="mb-2"><a href="index.html#nosotros" class="text-white-50 text-decoration-none footer-link">Nosotros</a></li>
+                        <li class="mb-2"><a href="servicios.html" class="text-white-50 text-decoration-none footer-link">Servicios</a></li>
+                        <li class="mb-2"><a href="empleo.html" class="text-white-50 text-decoration-none footer-link">Bolsa de Trabajo</a></li>
+                        <li class="mb-2"><a href="contacto.html" class="text-white-50 text-decoration-none footer-link">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-3">Contacto Directo</h5>
+                    <ul class="list-unstyled text-white-50 small">
+                        <li class="mb-3 d-flex">
+                            <i class="fa-solid fa-location-dot mt-1 me-3"></i>
+                            <span>Calz. Legaria No. 779 Int. 1, Col. Irrigación, C.P. 11500, CDMX.</span>
+                        </li>
+                        <li class="mb-3 d-flex">
+                            <i class="fa-solid fa-phone mt-1 me-3"></i>
+                            <span>55 38 72 35 64 / 65</span>
+                        </li>
+                        <li class="mb-3 d-flex">
+                            <i class="fa-solid fa-envelope mt-1 me-3"></i>
+                            <span>fersabater@ansaseguridad.com.mx</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-secondary mt-4 mb-3">
+            <div class="text-center text-white-50 small">
+                &copy; 2026 ANSA Seguridad Privada. Todos los derechos reservados. <br>
+                Desarrollado por Emanuel Casas.
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/525500000000?text=Hola,%20quisiera%20información%20sobre%20sus%20servicios" class="whatsapp-btn" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANSA Seguridad Privada</title>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="top-bar py-2 text-white">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="social-icons">
+                <a href="#" class="text-white-50 me-3 text-decoration-none"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="text-white-50 me-3 text-decoration-none"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="text-white-50 text-decoration-none"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+            <div class="contact-info small d-none d-md-block">
+                <span class="me-3"><i class="fa-solid fa-phone me-1"></i> 55 38 72 35 64</span>
+                <span><i class="fa-solid fa-envelope me-1"></i> fersabater@ansaseguridad.com.mx</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+    <img src="img/logo-ansa.jpg" alt="ANSA Seguridad Privada" style="height: 45px; width: auto;" class="me-2">
+    <span class="fw-bold fs-4">ANSA Seguridad</span>
+</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+                <ul class="navbar-nav fw-medium align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#nosotros">Nosotros</a></li>
+                    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="servicios.html" id="navServicios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Servicios
+    </a>
+    <ul class="dropdown-menu border-0 shadow" aria-labelledby="navServicios">
+        <li><a class="dropdown-item py-2" href="servicios.html#intramuros"><i class="fa-solid fa-building-user me-2"></i> Intramuros</a></li>
+        <li><a class="dropdown-item py-2" href="servicios.html#electronica"><i class="fa-solid fa-microchip me-2"></i> División Electrónica</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item py-2" href="servicios.html#personal"><i class="fa-solid fa-user-check me-2"></i> Nuestro Personal</a></li>
+    </ul>
+</li>
+                    <li class="nav-item"><a class="nav-link" href="empleo.html">Bolsa de Trabajo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a href="contacto.html#cotizacion" class="btn btn-primary rounded-pill px-4 text-white">Cotizar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-5 text-white text-center" style="background-color: #1a1a1a;">
+        <div class="container py-4">
+            <h1 class="display-5 fw-bold">Póngase en Contacto</h1>
+            <div class="title-line mx-auto bg-white mb-3" style="width: 80px; height: 4px;"></div>
+            <p class="lead">Estamos listos para brindarle la seguridad que su patrimonio merece.</p>
+        </div>
+    </header>
+
+    <section class="py-5 bg-white">
+        <div class="container py-4">
+            <div class="row g-5">
+                
+                <div class="col-lg-4">
+                    <div class="p-4 rounded-4 shadow-sm h-100" style="background-color: #f8f9fa;">
+                        <h4 class="fw-bold mb-4" style="color: #1a1a1a;">Atención Directa</h4>
+                        
+                        <div class="d-flex mb-4">
+                            <i class="fa-solid fa-phone fs-4 me-3 mt-1" style="color: #1a1a1a;"></i>
+                            <div>
+                                <h6 class="fw-bold mb-0">Teléfono Oficina</h6>
+                                <p class="text-muted mb-0">55 38 72 35 64 / 65</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex mb-4">
+                            <i class="fa-solid fa-envelope fs-4 me-3 mt-1" style="color: #1a1a1a;"></i>
+                            <div>
+                                <h6 class="fw-bold mb-0">Correo Electrónico</h6>
+                                <p class="text-muted mb-0">fersabater@ansaseguridad.com.mx</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex mb-4">
+                            <i class="fa-solid fa-clock fs-4 me-3 mt-1" style="color: #1a1a1a;"></i>
+                            <div>
+                                <h6 class="fw-bold mb-0">Horario de Atención</h6>
+                                <p class="text-muted mb-0">Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex">
+                            <i class="fa-solid fa-location-dot fs-4 me-3 mt-1" style="color: #1a1a1a;"></i>
+                            <div>
+                                <h6 class="fw-bold mb-0">Oficinas Centrales</h6>
+                                <p class="text-muted mb-0">Calz. Legaria No. 779 Int. 1, Col. Irrigación, C.P. 11500, CDMX.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="rounded-4 overflow-hidden shadow-sm h-100" style="min-height: 400px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.3425882219262!2d-99.24908302499914!3d19.4838911818065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d2030f995d7901%3A0xc8546d108471abcd!2sFacultad%20de%20Estudios%20Superiores%20Acatl%C3%A1n%20UNAM!5e0!3m2!1ses-419!2smx!4v1778710248783!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+     <section class="py-5" style="background-color: #f1f4f8;">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-4">
+                    <h2 class="fw-bold" style="color: #1a1a1a;">¿Listo para proteger tu negocio?</h2>
+                    <p class="text-muted">Déjanos tus datos y un asesor experto te contactará de inmediato.</p>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4 p-md-5">
+                            <form action="#" method="POST">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold text-secondary small">Nombre Completo *</label>
+                                        <input type="text" class="form-control bg-light" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold text-secondary small">Correo Electrónico *</label>
+                                        <input type="email" class="form-control bg-light" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold text-secondary small">Teléfono / Celular *</label>
+                                        <input type="tel" class="form-control bg-light" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold text-secondary small">Servicio de Interés</label>
+                                        <select class="form-select bg-light">
+                                            <option selected>Selecciona una opción...</option>
+                                            <option value="Industrial">Seguridad Industrial</option>
+                                            <option value="Empresarial">Seguridad Empresarial</option>
+                                            <option value="Residencial">Seguridad Residencial</option>
+                                            <option value="Otro">Otro</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label fw-bold text-secondary small">Mensaje</label>
+                                        <textarea class="form-control bg-light" rows="4" placeholder="Cuéntanos un poco sobre tus necesidades..."></textarea>
+                                    </div>
+
+                                    <div class="mb-3 d-flex justify-content-center">
+    <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqy9H71UMIEGNQ_MXjiZKhI"></div>
+</div>
+                                    <div class="col-12 mt-4 text-center">
+                                        <button type="submit" class="btn btn-primary rounded-pill px-5 py-3 fw-bold w-100">Enviar Mensaje</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4 class="fw-bold mb-3 text-white"><i class="fa-solid fa-shield-halved me-2"></i>ANSA Seguridad</h4>
+                    <p class="text-white-50 small">
+                        ANSA Seguridad Privada, S.A. de C.V. Brindamos soluciones integrales de seguridad para proteger su patrimonio, personal y operaciones con el más alto nivel de profesionalismo y legalidad.
+                    </p>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-3">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none footer-link">Inicio</a></li>
+                        <li class="mb-2"><a href="index.html#nosotros" class="text-white-50 text-decoration-none footer-link">Nosotros</a></li>
+                        <li class="mb-2"><a href="servicios.html" class="text-white-50 text-decoration-none footer-link">Servicios</a></li>
+                        <li class="mb-2"><a href="empleo.html" class="text-white-50 text-decoration-none footer-link">Bolsa de Trabajo</a></li>
+                        <li class="mb-2"><a href="contacto.html" class="text-white-50 text-decoration-none footer-link">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-3">Contacto Directo</h5>
+                    <ul class="list-unstyled text-white-50 small">
+                        <li class="mb-3 d-flex">
+                            <i class="fa-solid fa-location-dot mt-1 me-3"></i>
+                            <span>Calz. Legaria No. 779 Int. 1, Col. Irrigación, C.P. 11500, CDMX.</span>
+                        </li>
+                        <li class="mb-3 d-flex">
+                            <i class="fa-solid fa-phone mt-1 me-3"></i>
+                            <span>55 38 72 35 64 / 65</span>
+                        </li>
+                        <li class="mb-3 d-flex">
+                            <i class="fa-solid fa-envelope mt-1 me-3"></i>
+                            <span>fersabater@ansaseguridad.com.mx</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-secondary mt-4 mb-3">
+            <div class="text-center text-white-50 small">
+                &copy; 2026 ANSA Seguridad Privada. Todos los derechos reservados. <br>
+                Desarrollado por Emanuel Casas.
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/525500000000?text=Hola,%20quisiera%20información%20sobre%20sus%20servicios" class="whatsapp-btn" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
+</body>
+</html>
