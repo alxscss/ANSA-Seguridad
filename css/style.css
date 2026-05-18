@@ -1,0 +1,242 @@
+/* --- IDENTIDAD VISUAL REAL: ANSA SEGURIDAD --- */
+
+/* Colores corporativos (Negro carbón y grises metálicos) */
+.top-bar {
+    background-color: #1a1a1a; /* Negro carbón */
+}
+
+/* Ajuste del botón principal a la identidad de ANSA */
+.btn-primary {
+    background-color: #111111; /* Casi negro */
+    border-color: #111111;
+}
+
+.btn-primary:hover {
+    background-color: #3b3b3b; /* Gris oscuro metálico */
+    border-color: #3b3b3b;
+}
+
+/* --- 3. SECCIÓN HERO (PORTADA) --- */
+.hero-section {
+    /* Cambiamos el filtro rojizo/azul por un filtro oscuro (negro/gris) que resalta cualquier foto */
+    background: linear-gradient(rgba(26, 26, 26, 0.6), rgba(0, 0, 0, 0.8)), 
+                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* vh significa 'Viewport Height'. 80vh hace que ocupe el 80% del alto de la pantalla */
+    height: 80vh; 
+    min-height: 500px;
+}
+
+/* Una pequeña sombra al texto blanco para que resalte más */
+.shadow-text {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* --- 4. SECCIÓN NOSOTROS --- */
+
+/* Rayita decorativa debajo de los títulos (Gris metálico elegante) */
+.title-line {
+    width: 60px;
+    height: 4px;
+    background-color: #4a5568; /* Gris plata oscuro */
+    border-radius: 2px;
+}
+
+/* Efecto hover para las tarjetas de Misión/Visión */
+.custom-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* --- BOTÓN WHATSAPP FLOTANTE --- */
+.whatsapp-btn {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366; /* Este se queda igual, es el verde oficial de WhatsApp */
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 35px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000; /* Asegura que siempre esté por encima de todo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.whatsapp-btn:hover {
+    color: #FFF;
+    transform: scale(1.1); /* Se hace un poquito más grande al pasar el mouse */
+}
+
+/* --- 5. SLIDER INFINITO DE LOGOS --- */
+.logo-slider {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+/* El track que contiene los logos y se mueve */
+.logo-slide-track {
+    display: flex;
+    width: calc(250px * 10); /* 250px por slide, por los 10 slides totales */
+    animation: scrollLogos 20s linear infinite;
+}
+
+.slide {
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* La llave de la animación que lo mueve de 0 a la mitad exacta */
+@keyframes scrollLogos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 5)); }
+}
+
+/* Opcional: Pausar el carrusel si el usuario pone el mouse encima */
+.logo-slider:hover .logo-slide-track {
+    animation-play-state: paused;
+}
+
+/* --- 6. SECCIÓN SERVICIOS (RESUMEN) --- */
+.service-card {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* El ícono por defecto (Negro corporativo) */
+.icon-service {
+    color: #1a1a1a;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Efecto hover: la tarjeta flota y genera una sombra fuerte */
+.service-card:hover {
+    background-color: #ffffff;
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Efecto hover: el ícono crece y se vuelve de color gris plata metálico */
+.service-card:hover .icon-service {
+    transform: scale(1.2);
+    color: #718096; /* Gris metálico */
+}
+
+/* --- 7. FOOTER --- */
+.footer-link {
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+/* Al pasar el mouse, el texto se ilumina y da un mini saltito a la derecha */
+.footer-link:hover {
+    color: #ffffff !important;
+    padding-left: 6px; 
+}
+
+.footer-icon {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Al pasar el mouse en los iconos sociales, se iluminan y crecen un poco */
+.footer-icon:hover {
+    color: #ffffff !important;
+    transform: scale(1.2);
+    display: inline-block;
+}
+
+/* Fondo del pie de página */
+footer {
+    background-color: #1a1a1a;
+}
+
+/* --- ESTILO PARA EL CURSOR ANIMADO (JS) --- */
+.cursor {
+    display: inline-block;
+    width: 3px;
+    background-color: #fff;
+    margin-left: 2px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* --- EFECTO CORPORATIVO PARA LOGOS DE CLIENTES --- */
+.client-logo {
+    /* Convierte los logotipos a escala de grises y les baja un poco la intensidad */
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Al pasar el mouse por encima, el logotipo recupera su color original al 100% */
+.client-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05); /* Un micro-zoom muy sutil */
+}
+
+/* --- EFECTO HOVER PARA EL DROPDOWN (DESKTOP) --- */
+@media (min-width: 992px) {
+    .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0; /* Evita huecos que cierren el menú */
+        animation: fadeIn 0.3s ease;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+    color: #1a1a1a;
+    padding-left: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+/* --- ESTILOS COMPLEMENTARIOS PARA PESTAÑAS DE SERVICIOS --- */
+#subservices-menu .list-group-item.active {
+    background-color: #1a1a1a !important; /* Negro corporativo */
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+#subservices-menu .list-group-item {
+    color: #4a5568;
+    transition: all 0.2s ease;
+}
+
+#subservices-menu .list-group-item:hover:not(.active) {
+    background-color: #f1f4f8;
+    color: #1a1a1a;
+    padding-left: 1.25rem; /* Pequeño desplazamiento interactivo */
+}
+
+/* Ocultar barra de scroll en el menú deslizante de móviles */
+#subservices-menu::-webkit-scrollbar {
+    display: none;
+}
