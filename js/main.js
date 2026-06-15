@@ -1,56 +1,223 @@
-// Esperar a que todo el documento cargue antes de ejecutar el código
+// =====================================================
+// ANSA SEGURIDAD - Main JS (Modernizado 2026)
+// =====================================================
+
 document.addEventListener('DOMContentLoaded', function() {
     
-    // --- 1. EFECTO DE ESCRITURA DINÁMICA EN PORTADA (HERO) ---
-    
+    // --- 1. AOS (Animate On Scroll) Initialization ---
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 700,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 60,
+            delay: 0
+        });
+    }
+
+    // --- 2. IMPROVED TYPEWRITER EFFECT (Hero) ---
     const dynamicText = document.getElementById('dynamic-text');
-    // Estas son las frases que irán cambiando, ajústalas como prefieras
     const phrases = [
         "Seguridad Privada",
-        "Protección Intramuros",
-        "Vigilancia Profesional"
+        "Protección Profesional",
+        "Vigilancia Estratégica",
+        "Soluciones Integrales"
     ];
     
     let phraseIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
-    let typeSpeed = 100; // Velocidad de escritura normal
+    let typeSpeed = 95;
 
     function typeEffect() {
+        if (!dynamicText) return;
+        
         const currentPhrase = phrases[phraseIndex];
         
         if (isDeleting) {
-            // Borrando texto
             dynamicText.textContent = currentPhrase.substring(0, charIndex - 1);
             charIndex--;
-            typeSpeed = 50; // Más rápido al borrar
+            typeSpeed = 45;
         } else {
-            // Escribiendo texto
             dynamicText.textContent = currentPhrase.substring(0, charIndex + 1);
             charIndex++;
-            typeSpeed = 100; // Velocidad normal
+            typeSpeed = 95;
         }
 
-        // Lógica de cambio de estado
         if (!isDeleting && charIndex === currentPhrase.length) {
-            // Terminó de escribir la frase completa
             isDeleting = true;
-            typeSpeed = 2000; // Pausa larga al final de la frase
+            typeSpeed = 1850; // longer pause
         } else if (isDeleting && charIndex === 0) {
-            // Terminó de borrar, pasa a la siguiente frase
             isDeleting = false;
             phraseIndex = (phraseIndex + 1) % phrases.length;
-            typeSpeed = 500; // Pausa breve antes de empezar a escribir de nuevo
+            typeSpeed = 420;
         }
 
         setTimeout(typeEffect, typeSpeed);
     }
 
-    // Iniciar el efecto si el elemento existe en la página
     if (dynamicText) {
-        typeEffect();
+        // Small delay for better perceived performance
+        setTimeout(typeEffect, 650);
     }
 
+    // --- 3. UNIVERSAL FORMSPREE HANDLER + VALIDATION ---
+    const forms = document.querySelectorAll('form[action*="formspree.io"]');
+    
+    forms.forEach(form => {
+        const messageBox = form.querySelector('.form-message');
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
+        const btnLoading = submitBtn ? submitBtn.querySelector('.btn-loading') : null;
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Basic client-side validation
+            const requiredFields = form.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                field.classList.remove('is-invalid');
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.classList.add('is-invalid');
+                } else if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
+                    isValid = false;
+                    field.classList.add('is-invalid');
+                }
+            });
+
+            if (!isValid) {
+                if (messageBox) {
+                    messageBox.className = 'form-message small text-center mt-2 text-danger';
+                    messageBox.textContent = 'Por favor completa los campos requeridos correctamente.';
+                    messageBox.classList.remove('d-none');
+                }
+                return;
+            }
+
+            // Show loading state
+            if (submitBtn) submitBtn.disabled = true;
+            if (btnText) btnText.classList.add('d-none');
+            if (btnLoading) btnLoading.classList.remove('d-none');
+
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    if (messageBox) {
+                        messageBox.className = 'form-message small text-center mt-2 text-success fw-semibold';
+                        messageBox.textContent = '¡Mensaje enviado con éxito! Te contactaremos en las próximas horas.';
+                        messageBox.classList.remove('d-none');
+                    }
+                    form.reset();
+                    
+                    // Reset custom states
+                    setTimeout(() => {
+                        if (messageBox) messageBox.classList.add('d-none');
+                    }, 6200);
+                } else {
+                    throw new Error('Error en el servidor');
+                }
+            } catch (error) {
+                if (messageBox) {
+                    messageBox.className = 'form-message small text-center mt-2 text-danger';
+                    messageBox.textContent = 'Hubo un problema al enviar. Por favor intenta de nuevo o contáctanos por teléfono.';
+                    messageBox.classList.remove('d-none');
+                }
+            } finally {
+                if (submitBtn) submitBtn.disabled = false;
+                if (btnText) btnText.classList.remove('d-none');
+                if (btnLoading) btnLoading.classList.add('d-none');
+            }
+        });
+
+        // Clear error states on input
+        form.querySelectorAll('input, textarea, select').forEach(input => {
+            input.addEventListener('input', () => input.classList.remove('is-invalid'));
+        });
+    });
+
+    // --- 4. ELEGANT BACK TO TOP BUTTON ---
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    if (backToTopBtn) {
+        const toggleBackToTop = () => {
+            if (window.scrollY > 460) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        };
+
+        window.addEventListener('scroll', toggleBackToTop, { passive: true });
+        toggleBackToTop(); // initial state
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // --- 5. ENHANCED SMOOTH SCROLL (for non-AOS links) ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href').substring(1);
+            if (!targetId) return;
+            
+            const target = document.getElementById(targetId);
+            if (target) {
+                e.preventDefault();
+                const offset = 70;
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition - bodyRect - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // --- 6. NAVBAR ACTIVE STATE IMPROVEMENT (for single page sections) ---
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    const sections = document.querySelectorAll('section[id]');
+
+    if (navLinks.length && sections.length) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}` || 
+                            link.getAttribute('href') === `index.html#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.3, rootMargin: '-80px 0px -40% 0px' });
+
+        sections.forEach(section => observer.observe(section));
+    }
+
+    // --- 7. Accessibility + Performance polish ---
+    // Add aria-labels where helpful on existing interactive elements if missing
+    document.querySelectorAll('.whatsapp-btn').forEach(el => {
+        if (!el.hasAttribute('aria-label')) {
+            el.setAttribute('aria-label', 'Contactar por WhatsApp');
+        }
+    });
+
+    console.log('%c[ANSA] Sitio modernizado 2026 listo.', 'color:#0a3d62;font-size:9px');
 });
 
 
@@ -223,3 +390,243 @@ if (subservicesMenu) {
         }
     });
 }
+
+// === 4. SMOOTH SCROLL para enlaces internos ===
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        if (this.getAttribute('href') !== '#') {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
+});
+
+// === 5. Back to Top Button ===
+const backToTop = document.createElement('button');
+backToTop.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
+backToTop.className = 'btn btn-dark rounded-circle position-fixed bottom-5 end-5 shadow';
+backToTop.style.display = 'none';
+backToTop.style.zIndex = '1000';
+document.body.appendChild(backToTop);
+
+window.addEventListener('scroll', () => {
+    backToTop.style.display = window.scrollY > 400 ? 'block' : 'none';
+});
+
+backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+
+
+/* ── División Electrónica: tabs imagen + cards ──────────────── */
+(function () {
+  const thumbs   = document.querySelectorAll('.elec-thumb');
+  const cards    = document.querySelectorAll('.elec-service-card');
+  const mainImg  = document.getElementById('elecMainImg');
+  const badge    = document.getElementById('elecBadge');
+  const badgeTxt = document.getElementById('elecBadgeText');
+ 
+  if (!mainImg) return;
+ 
+  function activateIndex(i) {
+    // Thumbs
+    thumbs.forEach((t, idx) => t.classList.toggle('active', idx === i));
+    // Cards
+    cards.forEach((c, idx) => c.classList.toggle('active-card', idx === i));
+ 
+    // Imagen con fade
+    const thumb = thumbs[i];
+    mainImg.style.opacity = '0';
+    setTimeout(() => {
+      mainImg.src = thumb.dataset.img;
+      mainImg.style.opacity = '1';
+      badgeTxt.textContent  = thumb.dataset.badge;
+    }, 200);
+  }
+ 
+  // Click en thumbnails
+  thumbs.forEach((t, i) => t.addEventListener('click', () => activateIndex(i)));
+ 
+  // Click en cards también activa la miniatura correspondiente
+  cards.forEach((c, i) => c.addEventListener('click', () => activateIndex(i)));
+})();
+ 
+ 
+/* ── Lightbox universal ─────────────────────────────────────── */
+(function () {
+  const lb      = document.getElementById('ansa-lightbox');
+  const lbImg   = document.getElementById('lb-img');
+  const lbCap   = document.getElementById('lb-caption');
+  const lbClose = document.getElementById('lb-close');
+ 
+  if (!lb) return;
+ 
+  function openLB(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lbCap.textContent = alt || '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+ 
+  function closeLB() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+ 
+  // Cerrar con botón X
+  lbClose.addEventListener('click', closeLB);
+ 
+  // Cerrar al hacer clic en el fondo
+  lb.addEventListener('click', (e) => { if (e.target === lb) closeLB(); });
+ 
+  // Cerrar con Escape
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLB(); });
+ 
+  // Delegar clics en cualquier elemento con [data-lightbox]
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest('[data-lightbox]');
+    if (!el) return;
+    const src = el.tagName === 'IMG' ? el.src : el.dataset.lightbox;
+    const alt = el.dataset.lightboxCaption || el.alt || el.title || '';
+    openLB(src, alt);
+  });
+})();
+ 
+
+
+
+
+/* ── 1. Typewriter ─────────────────────────────────────────── */
+(function() {
+  const words  = ['Seguridad Industrial','Seguridad Empresarial','Protección Residencial','Soluciones Integrales','División Electrónica'];
+  const el     = document.getElementById('tw-text');
+  if (!el) return;
+ 
+  let wIdx = 0, cIdx = 0, deleting = false;
+ 
+  function tick() {
+    const word = words[wIdx];
+    if (!deleting) {
+      el.textContent = word.slice(0, ++cIdx);
+      if (cIdx === word.length) { deleting = true; setTimeout(tick, 1800); return; }
+      setTimeout(tick, 70);
+    } else {
+      el.textContent = word.slice(0, --cIdx);
+      if (cIdx === 0) {
+        deleting = false;
+        wIdx = (wIdx + 1) % words.length;
+        setTimeout(tick, 300);
+        return;
+      }
+      setTimeout(tick, 35);
+    }
+  }
+  setTimeout(tick, 800);
+})();
+ 
+ 
+/* ── 2. Navbar scroll transparente → sólido ──────────────── */
+(function() {
+  const nav = document.getElementById('main-navbar');
+  if (!nav) return;
+  const onScroll = () => nav.classList.toggle('navbar-scrolled', window.scrollY > 60);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+ 
+ 
+/* ── 3. Contadores animados (hero + nosotros) ─────────────── */
+(function() {
+  function animCount(el) {
+    const target = +el.dataset.target;
+    const duration = 1400;
+    const step = 16;
+    const steps = duration / step;
+    let current = 0;
+    const inc = target / steps;
+    const t = setInterval(() => {
+      current = Math.min(current + inc, target);
+      el.textContent = Math.round(current);
+      if (current >= target) clearInterval(t);
+    }, step);
+  }
+ 
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !e.target.dataset.counted) {
+        e.target.dataset.counted = '1';
+        animCount(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+ 
+  document.querySelectorAll('[data-target]').forEach(el => observer.observe(el));
+})();
+ 
+ 
+/* ── 4. Partículas canvas en el hero ─────────────────────── */
+(function() {
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+ 
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+ 
+  const N = 55;
+  for (let i = 0; i < N; i++) {
+    particles.push({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: Math.random() * 1.8 + 0.4,
+      vx: (Math.random() - .5) * .35,
+      vy: (Math.random() - .5) * .35,
+      a: Math.random() * .6 + .2
+    });
+  }
+ 
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = W;
+      if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H;
+      if (p.y > H) p.y = 0;
+ 
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${p.a})`;
+      ctx.fill();
+    });
+ 
+    // Líneas de conexión
+    for (let i = 0; i < N; i++) {
+      for (let j = i + 1; j < N; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 110) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(255,255,255,${.12 * (1 - dist/110)})`;
+          ctx.lineWidth = .5;
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
