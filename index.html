@@ -24,6 +24,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <link rel="stylesheet" href="css/style.css">
+
+    
+<div id="ansa-toast" role="status" aria-live="polite">
+  <div class="ansa-toast-icon"><i class="fa-solid fa-check"></i></div>
+  <div class="ansa-toast-text">
+    <strong>¡Mensaje enviado!</strong>
+    <span>Te contactaremos en las próximas horas.</span>
+  </div>
+  <button class="ansa-toast-close" aria-label="Cerrar notificación">&times;</button>
+</div>
+
+
+
 </head>
 <body>
 
@@ -45,7 +58,7 @@
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
     <img src="img/logo-ansa.jpg" alt="ANSA Seguridad Privada" style="height: 45px; width: auto;" class="me-2" loading="lazy">
-    <span class="fw-bold fs-4">ANSA Seguridad</span>
+    <span class="fw-bold fs-4">ANSA Seguridad Privada</span>
 </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
@@ -53,29 +66,52 @@
             </button>
             
             <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
-                <ul class="navbar-nav fw-medium align-items-center">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
-                    <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="servicios.html" id="navServicios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Servicios
-    </a>
-    <ul class="dropdown-menu border-0 shadow" aria-labelledby="navServicios">
-        <li><a class="dropdown-item py-2" href="servicios.html#intramuros"><i class="fa-solid fa-building-user me-2"></i> Intramuros</a></li>
-        <li><a class="dropdown-item py-2" href="servicios.html#electronica"><i class="fa-solid fa-microchip me-2"></i> División Electrónica</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item py-2" href="servicios.html#personal"><i class="fa-solid fa-user-check me-2"></i> Nuestro Personal</a></li>
-    </ul>
-</li>
-                    <li class="nav-item"><a class="nav-link" href="empleo.html">Bolsa de Trabajo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-                        <a href="index.html#cotizacion" class="btn btn-primary rounded-pill px-4 text-white">Cotizar</a>
-                    </li>
-                </ul>
-            </div>
+            <ul class="navbar-nav fw-medium align-items-center">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="servicios.html" id="navServicios" role="button" aria-expanded="false">
+                        Servicios
+                    </a>
+                    
+                    <ul class="dropdown-menu border-0 shadow" aria-labelledby="navServicios">
+                        
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item py-2 d-flex justify-content-between align-items-center" href="servicios.html#intramuros">
+                                <span><i class="fa-solid fa-building-user me-2"></i> Guardias de Seguridad</span>
+                                <i class="fa-solid fa-chevron-right fa-xs ms-3 text-muted"></i>
+                            </a>
+                            
+                            <ul class="dropdown-menu submenu border-0 shadow">
+                                <li><h6 class="dropdown-header small text-uppercase fw-bold" style="letter-spacing:.06em; font-size:.7rem;">Sectores</h6></li>
+                                <li><a class="dropdown-item py-2 ps-4" href="servicios.html#intramuros" data-sector-link="corporativo"><i class="fa-solid fa-building me-2 fa-sm"></i> Corporativos</a></li>
+                                <li><a class="dropdown-item py-2 ps-4" href="servicios.html#intramuros" data-sector-link="comercio"><i class="fa-solid fa-shop me-2 fa-sm"></i> Comercio</a></li>
+                                <li><a class="dropdown-item py-2 ps-4" href="servicios.html#intramuros" data-sector-link="industria"><i class="fa-solid fa-industry me-2 fa-sm"></i> Industria</a></li>
+                                <li><a class="dropdown-item py-2 ps-4" href="servicios.html#intramuros" data-sector-link="construccion"><i class="fa-solid fa-helmet-safety me-2 fa-sm"></i> Construcción</a></li>
+                                <li><a class="dropdown-item py-2 ps-4" href="servicios.html#intramuros" data-sector-link="condominios"><i class="fa-solid fa-city me-2 fa-sm"></i> Condominios</a></li>
+                                <li><a class="dropdown-item py-2 ps-4" href="servicios.html#intramuros" data-sector-link="fraccionamientos"><i class="fa-solid fa-house-flag me-2 fa-sm"></i> Fraccionamientos</a></li>
+                                <li><a class="dropdown-item py-2 ps-4" href="servicios.html#intramuros" data-sector-link="transporte"><i class="fa-solid fa-bus me-2 fa-sm"></i> Transporte Público</a></li>
+                                <li><a class="dropdown-item py-2 ps-4" href="servicios.html#intramuros" data-sector-link="educativo"><i class="fa-solid fa-graduation-cap me-2 fa-sm"></i> Centros Educativos</a></li>
+                                <li><a class="dropdown-item py-2 ps-4" href="servicios.html#intramuros" data-sector-link="eventos"><i class="fa fa-calendar"></i> Eventos Especiales</a></li>
+                                <li><a class="dropdown-item py-2 ps-4" href="servicios.html#intramuros" data-sector-link="residencial"><i class="fa-solid fa-house-chimney me-2 fa-sm"></i> Residencial</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a class="dropdown-item py-2" href="servicios.html#consultoria"><i class="fa-solid fa-magnifying-glass-chart me-2"></i> Consultoría</a></li>
+                        <li><a class="dropdown-item py-2" href="servicios.html#categoria"><i class="fa-solid fa-user-check me-2"></i> Nuestro Personal</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item"><a class="nav-link" href="empleo.html">Bolsa de Trabajo</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                    <a href="index.html#cotizacion" class="btn btn-primary rounded-pill px-4 text-white">Cotizar</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <header class="hero-section d-flex align-items-center text-center position-relative overflow-hidden">
  
@@ -113,7 +149,7 @@
     <!-- CTAs -->
     <div class="d-flex gap-3 justify-content-center flex-wrap mt-2"
          data-aos="fade-up" data-aos-delay="500">
-      <a href="contacto.html#cotizacion"
+      <a href="index.html#cotizacion"
          class="btn btn-light btn-lg rounded-pill px-5 fw-semibold shadow-sm">
         Solicitar Cotización
       </a>
@@ -131,10 +167,7 @@
         <span class="hero-stat-num" data-target="20">0</span><span class="text-white fw-bold fs-4">+</span>
         <p class="hero-stat-label">Años de experiencia</p>
       </div>
-      <div class="hero-stat hero-stat-divider">
-        <span class="hero-stat-num" data-target="11">0</span>
-        <p class="hero-stat-label">Clientes activos</p>
-      </div>
+      
       <div class="hero-stat hero-stat-divider">
         <span class="hero-stat-num" data-target="4">0</span>
         <p class="hero-stat-label">Permisos oficiales</p>
@@ -207,27 +240,28 @@
           </div>
         </div>
  
-        <!-- Mini-stats en grid 3 columnas -->
         <div class="row g-3" data-aos="fade-up" data-aos-delay="250">
-          <div class="col-4">
-            <div class="mini-stat rounded-4 text-center p-3">
-              <div class="mini-stat-num" data-target="15">0</div>
-              <div class="mini-stat-label">Años</div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="mini-stat rounded-4 text-center p-3">
-              <div class="mini-stat-num" data-target="11">0</div>
-              <div class="mini-stat-label">Clientes</div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="mini-stat rounded-4 text-center p-3">
-              <div class="mini-stat-num" data-target="100">0</div>
-              <div class="mini-stat-label">% Legal</div>
-            </div>
-          </div>
-        </div>
+  <div class="col-4">
+    <div class="mini-stat rounded-4 text-center p-3">
+      <div class="mini-stat-num" data-target="+19">0</div>
+      <div class="mini-stat-label">Años</div>
+    </div>
+  </div>
+  
+  <div class="col-4">
+    <div class="mini-stat rounded-4 text-center p-3">
+      <div class="mini-stat-text fs-2 fw-bold">Clientes</div>
+      <div class="mini-stat-label">Satisfechos</div>
+    </div>
+  </div>
+  
+  <div class="col-4">
+    <div class="mini-stat rounded-4 text-center p-3">
+      <div class="mini-stat-num" data-target="100">0</div>
+      <div class="mini-stat-label">% Legal</div>
+    </div>
+  </div>
+</div>
  
       </div>
     </div>
@@ -268,7 +302,7 @@
                         <div class="card-body flex-grow-1 d-flex flex-column">
                             <i class="fa-solid fa-gavel fs-1 mb-3" style="color: #1a1a1a;"></i>
                             <h5 class="fw-bold">Permiso SSC CDMX</h5>
-                            <p class="text-secondary small mb-2"><strong>Permiso No:</strong> 5 (Exp. 2696-07)</p>
+                            <p class="text-secondary small mb-2"><strong>Permiso No:</strong> 5 (Exp. 2515)</p>
                             <p class="text-muted small flex-grow-1">Revalidación oficial ante la Secretaría de Seguridad Ciudadana en la modalidad de Vigilancia y Protección de Bienes.</p>
                             
                             <button type="button" class="btn btn-dark btn-sm rounded-pill px-4 mt-auto" data-bs-toggle="modal" data-bs-target="#modalCDMX">
@@ -284,7 +318,7 @@
                         <div class="card-body flex-grow-1 d-flex flex-column">
                             <i class="fa-solid fa-file-contract fs-1 mb-3" style="color: #1a1a1a;"></i>
                             <h5 class="fw-bold">Secretaría de Seguridad Edoméx</h5>
-                            <p class="text-secondary small mb-2"><strong>Expediente:</strong> SS/49-08/24-10/SP-RA-III</p>
+                            <p class="text-secondary small mb-2"><strong>Expediente:</strong> SS/221/25-11/II-SP-RA-III</p>
                             <p class="text-muted small flex-grow-1">Autorización vigente expedida por el Estado de México para la prestación de servicios de seguridad privada intramuros.</p>
                             
                             <button type="button" class="btn btn-dark btn-sm rounded-pill px-4 mt-auto" data-bs-toggle="modal" data-bs-target="#modalEdomex">
@@ -375,140 +409,221 @@
         </div>
     </div>
 
-    <section class="py-5" style="background-color: #1a1a1a;" data-aos="fade-up">
-        <div class="container py-4">
-            <div class="text-center text-white mb-5">
-                <h2 class="fw-bold text-white">Sistemas Integrales de Seguridad</h2>
-                <div class="title-line mx-auto bg-white mb-3"></div>
-                <p class="lead text-white-50">Soluciones operativas y tecnológicas diseñadas a la medida de sus necesidades.</p>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 service-card">
-                        <div class="card-body text-center p-5">
-                            <i class="fa-solid fa-industry fs-1 mb-3 icon-service"></i>
-                            <h5 class="fw-bold">Seguridad Industrial</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 service-card">
-                        <div class="card-body text-center p-5">
-                            <i class="fa-solid fa-building fs-1 mb-3 icon-service"></i>
-                            <h5 class="fw-bold">Seguridad Empresarial</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 service-card">
-                        <div class="card-body text-center p-5">
-                            <i class="fa-solid fa-house-chimney fs-1 mb-3 icon-service"></i>
-                            <h5 class="fw-bold">Seguridad Residencial</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-5">
-                <a href="servicios.html" class="btn btn-outline-light rounded-pill px-5 py-3 fw-bold">Ver portafolio completo</a>
-            </div>
+    <section id="sistemas" class="section-tight" style="background-color: var(--c-navy);" data-aos="fade-up">
+  <div class="container">
+ 
+    <div class="d-flex flex-wrap justify-content-between align-items-end mb-4 gap-3">
+      <div>
+        <span class="label-eyebrow on-dark">Portafolio Operativo</span>
+        <h2 class="h-display text-white mt-2 mb-0" style="font-size:2rem;">Sistemas Integrales de Seguridad</h2>
+      </div>
+      <a href="servicios.html" class="btn btn-outline-light rounded-pill px-4 py-2 fw-semibold d-none d-md-inline-flex align-items-center gap-2" style="font-size:.85rem; border-color:rgba(255,255,255,.25);">
+        Ver portafolio completo <i class="fa-solid fa-arrow-right fa-xs"></i>
+      </a>
+    </div>
+ 
+    <!-- Pista de tarjetas: grid en desktop, scroll-snap en móvil -->
+    <div class="sistemas-track">
+ 
+      <a href="servicios.html?sector=corporativo#intramuros" class="sistemas-card" data-aos="fade-up" data-aos-delay="0">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=500&q=80" alt="">
+        <div class="sistemas-card-overlay"></div>
+        <div class="sistemas-card-body">
+          <i class="fa-solid fa-building"></i>
+          <h6>Corporativos</h6>
         </div>
-    </section>
-
-    <section class="py-5 bg-white border-top">
-        <div class="container py-4">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold">Empresas que confían en ANSA Seguridad</h2>
-                <div class="title-line mx-auto mb-3"></div>
-                <p class="text-muted">Garantizamos la continuidad operativa de marcas líderes e instituciones destacadas.</p>
-            </div>
-            
-            <!-- Infinite Logo Carousel - Modern & Professional -->
-            <div class="logo-slider" data-aos="fade-up" data-aos-delay="100">
-                <div class="logo-slide-track">
-                    <!-- First set of logos -->
-                    <div class="slide"><img src="img/kpmg-logo.png" alt="KPMG"></div>
-                    <div class="slide"><img src="img/krispykreme-logo.png" alt="Krispy Kreme"></div>
-                    <div class="slide"><img src="img/Mexibus-Logo.png" alt="Mexibús Estado de México"></div>
-                    <div class="slide"><img src="img/grupoindi-logo.png" alt="Grupo Indi"></div>
-                    <div class="slide"><img src="img/quierocasa-logo.png" alt="Quiero Casa"></div>
-                    <div class="slide"><img src="img/Evenflo-logo.png" alt="Evenflo México"></div>
-                    <div class="slide"><img src="img/regalacalidad-logo.png" alt="Regala Calidad"></div>
-                    <div class="slide"><img src="img/asecam-logo.png" alt="ASECAM"></div>
-                    
-                    <!-- Duplicate set for seamless infinite loop -->
-                    <div class="slide"><img src="img/kpmg-logo.png" alt="KPMG"></div>
-                    <div class="slide"><img src="img/krispykreme-logo.png" alt="Krispy Kreme"></div>
-                    <div class="slide"><img src="img/Mexibus-Logo.png" alt="Mexibús Estado de México"></div>
-                    <div class="slide"><img src="img/grupoindi-logo.png" alt="Grupo Indi"></div>
-                    <div class="slide"><img src="img/quierocasa-logo.png" alt="Quiero Casa"></div>
-                    <div class="slide"><img src="img/Evenflo-logo.png" alt="Evenflo México"></div>
-                    <div class="slide"><img src="img/regalacalidad-logo.png" alt="Regala Calidad"></div>
-                    <div class="slide"><img src="img/asecam-logo.png" alt="ASECAM"></div>
-                </div>
-            </div>
+      </a>
+ 
+      <a href="servicios.html?sector=industria#intramuros" class="sistemas-card" data-aos="fade-up" data-aos-delay="60">
+        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80" alt="">
+        <div class="sistemas-card-overlay"></div>
+        <div class="sistemas-card-body">
+          <i class="fa-solid fa-industry"></i>
+          <h6>Industria</h6>
         </div>
-    </section>
+      </a>
+ 
+      <a href="servicios.html?sector=condominios#intramuros" class="sistemas-card" data-aos="fade-up" data-aos-delay="120">
+        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=500&q=80" alt="">
+        <div class="sistemas-card-overlay"></div>
+        <div class="sistemas-card-body">
+          <i class="fa-solid fa-city"></i>
+          <h6>Condominios</h6>
+        </div>
+      </a>
+ 
+      <a href="servicios.html?sector=transporte#intramuros" class="sistemas-card" data-aos="fade-up" data-aos-delay="180">
+        <img src="img/trasnporte-publico.jpg" alt="">
+        <div class="sistemas-card-overlay"></div>
+        <div class="sistemas-card-body">
+          <i class="fa-solid fa-bus"></i>
+          <h6>Transporte Público</h6>
+        </div>
+      </a>
+ 
+      <a href="servicios.html?sector=residencial#intramuros" class="sistemas-card" data-aos="fade-up" data-aos-delay="240">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=500&q=80" alt="">
+        <div class="sistemas-card-overlay"></div>
+        <div class="sistemas-card-body">
+          <i class="fa-solid fa-house-chimney"></i>
+          <h6>Residencial</h6>
+        </div>
+      </a>
+ 
+    </div>
+ 
+    <!-- Mobile: link completo visible (en desktop ya está arriba) -->
+    <div class="text-center mt-4 d-md-none">
+      <a href="servicios.html" class="btn btn-outline-light rounded-pill px-4 py-2 fw-semibold" style="font-size:.85rem; border-color:rgba(255,255,255,.25);">
+        Ver portafolio completo <i class="fa-solid fa-arrow-right fa-xs ms-1"></i>
+      </a>
+    </div>
+ 
+  </div>
+</section>
 
+   
+<section id="clientes" class="section-tight" style="background:var(--c-bone-deep);" data-aos="fade-up">
+  <div class="container">
+ 
+    <div class="text-center mb-5">
+      <span class="label-eyebrow justify-content-center">Confianza Institucional</span>
+      <h2 class="h-display mt-2" style="font-size:2rem; color:var(--c-navy);">Empresas que confían en ANSA Seguridad</h2>
+      <div class="title-line mx-auto mt-3 mb-3"></div>
+      <p class="text-muted mx-auto" style="max-width:540px;">
+        Garantizamos la continuidad operativa de marcas líderes e instituciones destacadas a nivel nacional.
+      </p>
+    </div>
+ 
+    <!-- Grid de clientes: 2 destacados grandes + resto en grid uniforme -->
+    <div class="clientes-grid">
+ 
+      <div class="cliente-tile cliente-tile-lg" data-aos="zoom-in" data-aos-delay="0">
+        <i class="fa-solid fa-bus"></i>
+        <span>Mexibús<br>Estado de México</span>
+      </div>
+ 
+      <div class="cliente-tile cliente-tile-lg" data-aos="zoom-in" data-aos-delay="60">
+        <i class="fa-solid fa-chart-line"></i>
+        <span>KPMG<br>Cárdenas Dosal</span>
+      </div>
+ 
+      <div class="cliente-tile" data-aos="zoom-in" data-aos-delay="100">
+        <i class="fa-solid fa-store"></i>
+        <span>Krispy Kreme</span>
+      </div>
+ 
+      <div class="cliente-tile" data-aos="zoom-in" data-aos-delay="140">
+        <i class="fa-solid fa-house"></i>
+        <span>Quiero Casa</span>
+      </div>
+ 
+      <div class="cliente-tile" data-aos="zoom-in" data-aos-delay="180">
+        <i class="fa-solid fa-baby"></i>
+        <span>Evenflo México</span>
+      </div>
+ 
+      <div class="cliente-tile" data-aos="zoom-in" data-aos-delay="220">
+        <i class="fa-solid fa-bullhorn"></i>
+        <span>Omnicom Mediagroup</span>
+      </div>
+ 
+      <div class="cliente-tile" data-aos="zoom-in" data-aos-delay="260">
+        <i class="fa-solid fa-mug-hot"></i>
+        <span>Office Coffee Service</span>
+      </div>
+ 
+      <div class="cliente-tile" data-aos="zoom-in" data-aos-delay="300">
+        <i class="fa-solid fa-building"></i>
+        <span>Grupo INDI</span>
+      </div>
+ 
+      <div class="cliente-tile" data-aos="zoom-in" data-aos-delay="340">
+        <i class="fa-solid fa-handshake"></i>
+        <span>ASECAM</span>
+      </div>
+ 
+    </div>
+ 
+  </div>
+</section>
+ 
+  </div>
+</section>
     <section id="cotizacion" class="py-5" style="background-color: #f1f4f8;" data-aos="fade-up">
-        <div class="container py-4">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center mb-4">
-                    <h2 class="fw-bold">¿Listo para proteger su patrimonio?</h2>
-                    <p class="text-muted">Déjenos sus datos de contacto y un consultor especializado estructurará una propuesta económica formal.</p>
-                </div>
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center mb-4">
+                <h2 class="fw-bold">¿Listo para proteger su patrimonio?</h2>
+                <p class="text-muted">Déjenos sus datos de contacto y un consultor especializado estructurará una propuesta económica formal.</p>
             </div>
-            
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="card border-0 shadow-sm rounded-4">
-                        <div class="card-body p-4 p-md-5">
-                            <form id="cotizacion-form" action="https://formspree.io/f/xplaceholder" method="POST" novalidate>
-                                <input type="hidden" name="_subject" value="Nueva cotización - ANSA Seguridad">
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-bold text-secondary small">Nombre Completo *</label>
-                                        <input type="text" name="nombre" class="form-control bg-light" required minlength="3">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-bold text-secondary small">Correo Electrónico *</label>
-                                        <input type="email" name="email" class="form-control bg-light" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-bold text-secondary small">Teléfono / Celular *</label>
-                                        <input type="tel" name="telefono" class="form-control bg-light" required pattern="[0-9\s\-\+\(\)]{8,}">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-bold text-secondary small">Servicio de Interés</label>
-                                        <select name="servicio" class="form-select bg-light">
-                                            <option value="">Selecciona una opción...</option>
-                                            <option value="Industrial">Seguridad Industrial</option>
-                                            <option value="Empresarial">Seguridad Empresarial</option>
-                                            <option value="Residencial">Seguridad Residencial</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-12">
-                                        <label class="form-label fw-bold text-secondary small">Mensaje o Requerimientos Específicos</label>
-                                        <textarea name="mensaje" class="form-control bg-light" rows="4" placeholder="Indique el número de elementos o la modalidad requerida..."></textarea>
-                                    </div>
-                                    <div class="col-12 mt-4 text-center">
-                                        <button type="submit" class="btn btn-primary rounded-pill px-5 py-3 fw-bold w-100 text-white">
-                                            <span class="btn-text">Enviar Mensaje</span>
-                                            <span class="btn-loading d-none"><i class="fa-solid fa-spinner fa-spin me-2"></i>Enviando...</span>
-                                        </button>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-message d-none small text-center mt-2"></div>
-                                    </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm rounded-4">
+                    <div class="card-body p-4 p-md-5">
+                        <form id="cotizacion-form" action="https://formspree.io/f/mjgddpvk" method="POST">
+                            <input type="hidden" name="_subject" value="Nueva cotización - ANSA Seguridad">
+                            
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold text-secondary small">Nombre Completo *</label>
+                                    <input type="text" name="nombre" class="form-control bg-light" required pattern="[A-Za-zÀ-ÿ\s]{3,60}" title="Por favor, ingrese un nombre real (solo letras, mínimo 3 caracteres).">
                                 </div>
-                            </form>
-                        </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold text-secondary small">Correo Electrónico *</label>
+                                    <input type="email" name="email" class="form-control bg-light" required title="Ingrese un correo electrónico válido.">
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold text-secondary small">Teléfono / Celular *</label>
+                                    <input type="tel" name="telefono" class="form-control bg-light" required pattern="[0-9]{10,12}" title="Ingrese un número válido a 10 dígitos (sin espacios ni guiones).">
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold text-secondary small">Servicio de Interés *</label>
+                                    <select name="servicio" class="form-select bg-light" required>
+                                        <option value="">Selecciona una opción...</option>
+                                        <option value="Corporativa">Seguridad Corporativa</option>
+                                        <option value="Empresarial">Seguridad Comercial</option>
+                                        <option value="Industrial">Seguridad Industrial</option>
+                                        <option value="Construcción">Construcción</option>
+                                        <option value="Condominios">Condominios</option>
+                                        <option value="Fraccionamientos">Fraccionamientos</option>
+                                        <option value="Transporte">Transporte Público</option>
+                                        <option value="Educativos">Centros Educativos</option>
+                                        <option value="Eventos">Eventos Especiales</option>
+                                        <option value="Residencial">Residencial</option>
+                                        <option value="Consultoría">Consultoría y/o Análisis</option>
+                                        <option value="Otro">Otro</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <label class="form-label fw-bold text-secondary small">Mensaje o Requerimientos Específicos *</label>
+                                    <textarea name="mensaje" class="form-control bg-light" rows="4" placeholder="Indique el número de elementos o la modalidad requerida..." required minlength="10" title="Por favor, bríndenos un poco más de detalle (mínimo 10 caracteres)."></textarea>
+                                </div>
+                                
+                                <div class="col-12 mt-4 text-center">
+                                    <button type="submit" class="btn btn-primary rounded-pill px-5 py-3 fw-bold w-100 text-white">
+                                        <span class="btn-text">Enviar Mensaje</span>
+                                        <span class="btn-loading d-none"><i class="fa-solid fa-spinner fa-spin me-2"></i>Enviando...</span>
+                                    </button>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <div class="form-message d-none small text-center mt-2"></div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <footer class="text-white pt-5 pb-3">
         <div class="container">
@@ -545,11 +660,19 @@
                         </li>
                         <li class="mb-3 d-flex">
                             <i class="fa-solid fa-phone mt-1 me-3"></i>
-                            <span>55 38 72 35 64 / 65</span>
+                            <span>Asesoria ANSA: 55 38 72 35 64 / 65</span>
+                        </li>
+                        <li class="mb-3 d-flex">
+                            <i class="fa-solid fa-phone mt-1 me-3"></i>
+                            <span>Reclutamiento ANSA: 5535753105</span>
                         </li>
                         <li class="mb-3 d-flex">
                             <i class="fa-solid fa-envelope mt-1 me-3"></i>
                             <span>asesor@ansaseguridad.com.mx</span>
+                        </li>
+                        <li class="mb-3 d-flex">
+                            <i class="fa-solid fa-envelope mt-1 me-3"></i>
+                            <span>talento@ansaseguridad.com.mx</span> 
                         </li>
                     </ul>
                 </div>
