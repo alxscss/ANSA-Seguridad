@@ -45,37 +45,60 @@
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
     <img src="img/logo-ansa.jpg" alt="ANSA Seguridad Privada" style="height: 45px; width: auto;" class="me-2" loading="lazy">
-    <span class="fw-bold fs-4">ANSA Seguridad</span>
+    <span class="fw-bold fs-4">ANSA Seguridad Privada</span>
 </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
-            <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
-                <ul class="navbar-nav fw-medium align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#nosotros">Nosotros</a></li>
-                    <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="servicios.html" id="navServicios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Servicios
-    </a>
-    <ul class="dropdown-menu border-0 shadow" aria-labelledby="navServicios">
-        <li><a class="dropdown-item py-2" href="servicios.html#intramuros"><i class="fa-solid fa-building-user me-2"></i> Intramuros</a></li>
-        <li><a class="dropdown-item py-2" href="servicios.html#electronica"><i class="fa-solid fa-microchip me-2"></i> División Electrónica</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item py-2" href="servicios.html#personal"><i class="fa-solid fa-user-check me-2"></i> Nuestro Personal</a></li>
-    </ul>
-</li>
-                    <li class="nav-item"><a class="nav-link" href="empleo.html">Bolsa de Trabajo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-                        <a href="empleo.html#cotizar" class="btn btn-primary rounded-pill px-4 text-white">Cotizar</a>
-                    </li>
-                </ul>
-            </div>
+<div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+            <ul class="navbar-nav fw-medium align-items-center">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="servicios.html" id="navServicios" role="button" aria-expanded="false">
+                        Servicios
+                    </a>
+                    
+                    <ul class="dropdown-menu border-0 shadow" aria-labelledby="navServicios">
+                        
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item py-2 d-flex justify-content-between align-items-center" href="servicios.html#intramuros">
+                                <span><i class="fa-solid fa-building-user me-2"></i> Guardias de Seguridad</span>
+                                <i class="fa-solid fa-chevron-right fa-xs ms-3 text-muted"></i>
+                            </a>
+                            
+                            <ul class="dropdown-menu submenu border-0 shadow">
+                                <li><h6 class="dropdown-header small text-uppercase fw-bold" style="letter-spacing:.06em; font-size:.7rem;">Sectores</h6></li>
+                                <li><a class="dropdown-item py-2 ps-4" href="servicios.html#intramuros" data-sector-link="corporativo"><i class="fa-solid fa-building me-2 fa-sm"></i> Corporativos</a></li>
+                                <li><a class="dropdown-item py-2 ps-4" href="servicios.html#intramuros" data-sector-link="comercio"><i class="fa-solid fa-shop me-2 fa-sm"></i> Comercio</a></li>
+                                <li><a class="dropdown-item py-2 ps-4" href="servicios.html#intramuros" data-sector-link="industria"><i class="fa-solid fa-industry me-2 fa-sm"></i> Industria</a></li>
+                                <li><a class="dropdown-item py-2 ps-4" href="servicios.html#intramuros" data-sector-link="construccion"><i class="fa-solid fa-helmet-safety me-2 fa-sm"></i> Construcción</a></li>
+                                <li><a class="dropdown-item py-2 ps-4" href="servicios.html#intramuros" data-sector-link="condominios"><i class="fa-solid fa-city me-2 fa-sm"></i> Condominios</a></li>
+                                <li><a class="dropdown-item py-2 ps-4" href="servicios.html#intramuros" data-sector-link="fraccionamientos"><i class="fa-solid fa-house-flag me-2 fa-sm"></i> Fraccionamientos</a></li>
+                                <li><a class="dropdown-item py-2 ps-4" href="servicios.html#intramuros" data-sector-link="transporte"><i class="fa-solid fa-bus me-2 fa-sm"></i> Transporte Público</a></li>
+                                <li><a class="dropdown-item py-2 ps-4" href="servicios.html#intramuros" data-sector-link="educativo"><i class="fa-solid fa-graduation-cap me-2 fa-sm"></i> Centros Educativos</a></li>
+                                <li><a class="dropdown-item py-2 ps-4" href="servicios.html#intramuros" data-sector-link="eventos"><i class="fa fa-calendar"></i> Eventos Especiales</a></li>
+                                <li><a class="dropdown-item py-2 ps-4" href="servicios.html#intramuros" data-sector-link="residencial"><i class="fa-solid fa-house-chimney me-2 fa-sm"></i> Residencial</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a class="dropdown-item py-2" href="servicios.html#consultoria"><i class="fa-solid fa-magnifying-glass-chart me-2"></i> Consultoría</a></li>
+                        <li><a class="dropdown-item py-2" href="servicios.html#categoria"><i class="fa-solid fa-user-check me-2"></i> Nuestro Personal</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item"><a class="nav-link" href="empleo.html">Bolsa de Trabajo</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                    <a href="empleo.html#cotizar" class="btn btn-primary rounded-pill px-4 text-white">Cotizar</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <header class="py-5 text-white text-center" style="background-color: #1a1a1a;" data-aos="fade-down">
         <div class="container py-4">
@@ -85,139 +108,202 @@
         </div>
     </header>
 
-<section class="py-5 bg-white" data-aos="fade-up">
-        <div class="container-fluid px-lg-5"> <div class="row g-4 align-items-start justify-content-center">
-                
-                <div class="col-lg-3 text-center d-none d-lg-block">
-                    <img src="img/guardia-ejecutivo.png" alt="Guardia ANSA" class="img-fluid" style="max-height: 520px; width: auto; filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.1));">
-                </div>
 
-                <div class="col-12 col-lg-4">
-                    <div class="px-lg-3 pt-2"> <h3 class="fw-bold mb-3" style="color: #1a1a1a;">¿Por qué trabajar en ANSA Seguridad?</h3>
-                        <p class="text-muted mb-4">
-                            Ofrecemos un entorno laboral estable, profesional y con oportunidades de crecimiento real. Al integrarte a nuestra fuerza operativa obtienes un empleo formal con respaldo institucional.
-                        </p>
-                        
-                        <div class="mb-4">
-                            <ul class="list-unstyled mb-0 text-muted">
-                                <li class="mb-2 d-flex align-items-center">
-                                    <i class="fa-solid fa-circle-check text-success me-3"></i> Prestaciones de ley desde el primer día.
-                                </li>
-                                <li class="mb-2 d-flex align-items-center">
-                                    <i class="fa-solid fa-circle-check text-success me-3"></i> Pagos puntuales y uniformes gratuitos.
-                                </li>
-                                <li class="mb-2 d-flex align-items-center">
-                                    <i class="fa-solid fa-circle-check text-success me-3"></i> Capacitación certificada y ambiente estable.
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="accordion mb-4" id="accordionRequisitos">
-                            <div class="accordion-item border-0 shadow-sm rounded-3">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed fw-bold rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePerfil" style="background-color: #f8f9fa; color: #1a1a1a;">
-                                        <i class="fa-solid fa-clipboard-user me-3 text-secondary"></i> Ver Perfil Requerido (Filtro Oficial)
-                                    </button>
-                                </h2>
-                                <div id="collapsePerfil" class="accordion-collapse collapse" data-bs-parent="#accordionRequisitos">
-                                    <div class="accordion-body bg-white text-muted small p-4" style="line-height: 1.6;">
-                                        <h6 class="fw-bold text-dark mb-2">Género Masculino:</h6>
-                                        <ul class="ps-3 mb-3">
-                                            <li>Mexicano por nacimiento.</li>
-                                            <li>Estatura de 1.65 MTS. mínimo.</li>
-                                            <li>Edad entre 25 a 50 años.</li>
-                                            <li>Educación básica media terminada.</li>
-                                            <li>Cartilla del SMN y Credencial de Elector.</li>
-                                        </ul>
-
-                                        <h6 class="fw-bold text-dark mb-2">Género Femenino:</h6>
-                                        <ul class="ps-3 mb-0">
-                                            <li>Mexicana por nacimiento.</li>
-                                            <li>Estatura de 1.60 MTS. mínimo.</li>
-                                            <li>Edad entre 25 a 40 años.</li>
-                                            <li>Educación básica terminada y Credencial.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="alert alert-secondary border-0 small mb-0 bg-light text-secondary" role="alert" style="line-height: 1.5; border-left: 4px solid #1a1a1a !important;">
-                            <i class="fa-solid fa-circle-info me-2"></i> 
-                            El área de Recursos Humanos realizará una verificación estricta de datos, domicilio y antecedentes.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-lg-5 mt-4 mt-lg-0">
-                    <div class="card shadow-sm border-0 rounded-4 overflow-hidden" style="background-color: #f8f9fa;">
-                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc7GU-cGTuyTsOd2YH4n8k5_EDFutf5Q0nCzhOGI_z30kfWEg/viewform?embedded=true" width="640" height="3768" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
-                    </div>
-                </div>
-
+<section id="postulacion" class="py-5 bg-white" data-aos="fade-up">
+  <div class="container py-4">
+ 
+    <div class="text-center mb-5">
+      <span class="label-eyebrow justify-content-center">Únete al Equipo</span>
+      <h2 class="h-display mt-2" style="font-size:2rem; color:var(--c-navy, #1a1a1a);">¿Por qué trabajar en ANSA Seguridad?</h2>
+      <div class="title-line mx-auto mt-3 mb-3"></div>
+      <p class="text-muted mx-auto" style="max-width:600px;">
+        Ofrecemos un entorno laboral estable, profesional y con oportunidades de crecimiento real, con respaldo institucional desde el primer día.
+      </p>
+    </div>
+ 
+    <div class="row g-4">
+ 
+      <!-- ═══ Columna izquierda: sticky ═══ -->
+      <div class="col-lg-5">
+        <div class="empleo-sticky-wrap">
+ 
+          <!-- Beneficios -->
+          <div class="empleo-benefits mb-4">
+            <div class="empleo-benefit-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Prestaciones de ley desde el primer día.</span>
             </div>
+            <div class="empleo-benefit-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Pagos puntuales y uniformes gratuitos.</span>
+            </div>
+            <div class="empleo-benefit-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Capacitación certificada y ambiente estable.</span>
+            </div>
+          </div>
+ 
+          <!-- Proceso de 4 pasos -->
+          <div class="empleo-process mb-4">
+            <h6 class="empleo-process-title">Qué esperar después de aplicar</h6>
+            <div class="empleo-step">
+              <div class="empleo-step-num">1</div>
+              <div class="empleo-step-body">
+                <h6>Llena la solicitud</h6>
+                <p>Completa el formulario con tus datos generales.</p>
+              </div>
+            </div>
+            <div class="empleo-step">
+              <div class="empleo-step-num">2</div>
+              <div class="empleo-step-body">
+                <h6>Entrevista y verificación</h6>
+                <p>RRHH revisa tu perfil y te contacta para entrevista.</p>
+              </div>
+            </div>
+            <div class="empleo-step">
+              <div class="empleo-step-num">3</div>
+              <div class="empleo-step-body">
+                <h6>Capacitación inicial</h6>
+                <p>Formación en consignas básicas de seguridad.</p>
+              </div>
+            </div>
+            <div class="empleo-step empleo-step-last">
+              <div class="empleo-step-num">4</div>
+              <div class="empleo-step-body">
+                <h6>Te integras a la plantilla</h6>
+                <p>Asignación a tu puesto con respaldo institucional.</p>
+              </div>
+            </div>
+          </div>
+ 
+          <!-- Acordeón de requisitos -->
+          <div class="accordion mb-4" id="accordionRequisitos">
+            <div class="accordion-item border-0 rounded-3 overflow-hidden empleo-accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePerfil" style="background-color:#f8f9fa; color:#1a1a1a;">
+                  <i class="fa-solid fa-clipboard-user me-3 text-secondary"></i> Ver Perfil Requerido (Filtro Oficial)
+                </button>
+              </h2>
+              <div id="collapsePerfil" class="accordion-collapse collapse" data-bs-parent="#accordionRequisitos">
+                <div class="accordion-body bg-white text-muted small p-4" style="line-height: 1.6;">
+                  <h6 class="fw-bold text-dark mb-2">Género Masculino:</h6>
+                  <ul class="ps-3 mb-3">
+                    <li>Mexicano por nacimiento.</li>
+                    <li>Estatura de 1.65 MTS. mínimo.</li>
+                    <li>Edad entre 25 a 50 años.</li>
+                    <li>Educación básica media terminada.</li>
+                    <li>Cartilla del SMN y Credencial de Elector.</li>
+                  </ul>
+ 
+                  <h6 class="fw-bold text-dark mb-2">Género Femenino:</h6>
+                  <ul class="ps-3 mb-0">
+                    <li>Mexicana por nacimiento.</li>
+                    <li>Estatura de 1.60 MTS. mínimo.</li>
+                    <li>Edad entre 25 a 40 años.</li>
+                    <li>Educación básica terminada y Credencial.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+ 
+          <!-- Aviso RRHH -->
+          <div class="empleo-notice">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>El área de Recursos Humanos realizará una verificación estricta de datos, domicilio y antecedentes.</span>
+          </div>
+ 
         </div>
-    </section>
+      </div>
+ 
+      <!-- ═══ Columna derecha: formulario (sin cambios funcionales) ═══ -->
+      <div class="col-lg-7">
+        <div class="card shadow-sm border-0 rounded-4 overflow-hidden empleo-form-card">
+         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfF7fjfc6-QBMOClLWy9vM7z68UHXtW96TtYfqmW2Zb9elQcQ/viewform?embedded=true" width="640" height="3721" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+                
 
 
      <section id="cotizar" class="py-5" style="background-color: #f1f4f8;" data-aos="fade-up">
-        <div class="container py-4">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center mb-4">
-                    <h2 class="fw-bold" style="color: #1a1a1a;">¿Listo para proteger tu negocio?</h2>
-                    <p class="text-muted">Déjanos tus datos y un asesor experto te contactará de inmediato.</p>
-                </div>
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center mb-4">
+                <h2 class="fw-bold">¿Listo para proteger su patrimonio?</h2>
+                <p class="text-muted">Déjenos sus datos de contacto y un consultor especializado estructurará una propuesta económica formal.</p>
             </div>
-            
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="card border-0 shadow-sm rounded-4">
-                        <div class="card-body p-4 p-md-5">
-                            <form id="empleo-quote-form" action="https://formspree.io/f/xplaceholder" method="POST" novalidate>
-                                <input type="hidden" name="_subject" value="Solicitud de cotización desde Bolsa de Trabajo - ANSA">
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-bold text-secondary small">Nombre Completo *</label>
-                                        <input type="text" name="nombre" class="form-control bg-light" required minlength="3">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-bold text-secondary small">Correo Electrónico *</label>
-                                        <input type="email" name="email" class="form-control bg-light" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-bold text-secondary small">Teléfono / Celular *</label>
-                                        <input type="tel" name="telefono" class="form-control bg-light" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label fw-bold text-secondary small">Servicio de Interés</label>
-                                        <select name="servicio" class="form-select bg-light">
-                                            <option value="">Selecciona una opción...</option>
-                                            <option value="Industrial">Seguridad Industrial</option>
-                                            <option value="Empresarial">Seguridad Empresarial</option>
-                                            <option value="Residencial">Seguridad Residencial</option>
-                                            <option value="Otro">Otro</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-12">
-                                        <label class="form-label fw-bold text-secondary small">Mensaje</label>
-                                        <textarea name="mensaje" class="form-control bg-light" rows="4" placeholder="Cuéntanos un poco sobre tus necesidades..."></textarea>
-                                    </div>
-                                    <div class="col-12 mt-4 text-center">
-                                        <button type="submit" class="btn btn-primary rounded-pill px-5 py-3 fw-bold w-100">
-                                            <span class="btn-text">Enviar Mensaje</span>
-                                            <span class="btn-loading d-none"><i class="fa-solid fa-spinner fa-spin me-2"></i>Enviando...</span>
-                                        </button>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-message d-none small text-center mt-2"></div>
-                                    </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm rounded-4">
+                    <div class="card-body p-4 p-md-5">
+                        <form id="cotizacion-form" action="https://formsubmit.co/casasalexis4@gmail.com" method="POST">
+                            <input type="hidden" name="_subject" value="Nueva cotización - ANSA Seguridad">
+                            
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold text-secondary small">Nombre Completo *</label>
+                                    <input type="text" name="nombre" class="form-control bg-light" required pattern="[A-Za-zÀ-ÿ\s]{3,60}" title="Por favor, ingrese un nombre real (solo letras, mínimo 3 caracteres).">
                                 </div>
-                            </form>
-                        </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold text-secondary small">Correo Electrónico *</label>
+                                    <input type="email" name="email" class="form-control bg-light" required title="Ingrese un correo electrónico válido.">
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold text-secondary small">Teléfono / Celular *</label>
+                                    <input type="tel" name="telefono" class="form-control bg-light" required pattern="[0-9]{10,12}" title="Ingrese un número válido a 10 dígitos (sin espacios ni guiones).">
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold text-secondary small">Servicio de Interés *</label>
+                                    <select name="servicio" class="form-select bg-light" required>
+                                        <option value="">Selecciona una opción...</option>
+                                        <option value="Corporativa">Seguridad Corporativa</option>
+                                        <option value="Empresarial">Seguridad Comercial</option>
+                                        <option value="Industrial">Seguridad Industrial</option>
+                                        <option value="Construcción">Construcción</option>
+                                        <option value="Condominios">Condominios</option>
+                                        <option value="Fraccionamientos">Fraccionamientos</option>
+                                        <option value="Transporte">Transporte Público</option>
+                                        <option value="Educativos">Centros Educativos</option>
+                                        <option value="Eventos">Eventos Especiales</option>
+                                        <option value="Residencial">Residencial</option>
+                                        <option value="Consultoría">Consultoría y/o Análisis</option>
+                                        <option value="Otro">Otro</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <label class="form-label fw-bold text-secondary small">Mensaje o Requerimientos Específicos *</label>
+                                    <textarea name="mensaje" class="form-control bg-light" rows="4" placeholder="Indique el número de elementos o la modalidad requerida..." required minlength="10" title="Por favor, bríndenos un poco más de detalle (mínimo 10 caracteres)."></textarea>
+                                </div>
+                                <input type="hidden" name="_next" value="empleo.html">
+  <input type="hidden" name="_captcha" value="false">
+                                <div class="col-12 mt-4 text-center">
+                                    <button type="submit" class="btn btn-primary rounded-pill px-5 py-3 fw-bold w-100 text-white">
+                                        <span class="btn-text">Enviar Mensaje</span>
+                                        <span class="btn-loading d-none"><i class="fa-solid fa-spinner fa-spin me-2"></i>Enviando...</span>
+                                    </button>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <div class="form-message d-none small text-center mt-2"></div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </section>
 
 
@@ -243,7 +329,7 @@
                 </div>
 
                 <div class="col-lg-4 mb-4">
-                    <h5 class="fw-bold mb-3">Contacto Directo</h5>
+                    <h5 class="fw-bold mb-3">Contacto Oficial</h5>
                     <ul class="list-unstyled text-white-50 small">
                         <li class="mb-3 d-flex">
                             <i class="fa-solid fa-location-dot mt-1 me-3"></i>
@@ -251,11 +337,19 @@
                         </li>
                         <li class="mb-3 d-flex">
                             <i class="fa-solid fa-phone mt-1 me-3"></i>
-                            <span>55 38 72 35 64 / 65</span>
+                            <span>Asesoria ANSA: 55 38 72 35 64 / 65</span>
+                        </li>
+                        <li class="mb-3 d-flex">
+                            <i class="fa-solid fa-phone mt-1 me-3"></i>
+                            <span>Reclutamiento ANSA: 5535753105</span>
                         </li>
                         <li class="mb-3 d-flex">
                             <i class="fa-solid fa-envelope mt-1 me-3"></i>
                             <span>asesor@ansaseguridad.com.mx</span>
+                        </li>
+                        <li class="mb-3 d-flex">
+                            <i class="fa-solid fa-envelope mt-1 me-3"></i>
+                            <span>talento@ansaseguridad.com.mx</span> 
                         </li>
                     </ul>
                 </div>
