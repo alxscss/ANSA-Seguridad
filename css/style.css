@@ -2182,4 +2182,24 @@ textarea.form-control {
     bottom: 86px;
     max-width: 200px;
   }
+
+    .ansa-gform {
+  display: block;
+  width: 100% !important;
+  max-width: 100%;
+  border: none;
+}
+ 
+/* En pantallas muy angostas, Google Forms internamente necesita
+   un mínimo razonable para que sus selects no se compriman al
+   punto de cortar texto. Si tu .card contenedora tiene padding,
+   esto evita que el iframe quede más angosto que ese mínimo. */
+@media (max-width: 420px) {
+  .empleo-form-card {
+    padding: 0 !important;
+    margin-left: -.25rem;
+    margin-right: -.25rem;
+    width: calc(100% + .5rem);
+  }
+}
 }
