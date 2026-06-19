@@ -765,5 +765,55 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 })();
 
+
+(function () {
+  const bubble  = document.getElementById('wa-bubble');
+  const btn     = document.getElementById('wa-float-btn');
+  if (!bubble || !btn) return;
+ 
+  const ring    = btn.querySelector('.wa-pulse-ring');
+  const closeBt = bubble.querySelector('.wa-bubble-close');
+ 
+  const REMINDER_INTERVAL = 45000; // cada 45 segundos
+  const BUBBLE_VISIBLE_FOR = 5000;  // se muestra 5 segundos
+ 
+  let stopped = false;
+  let intervalId;
+ 
+  function showReminder() {
+    if (stopped) return;
+ 
+    bubble.classList.add('visible');
+    ring.classList.add('pulsing');
+ 
+    setTimeout(() => {
+      bubble.classList.remove('visible');
+    }, BUBBLE_VISIBLE_FOR);
+ 
+    // el anillo de pulso se reinicia solo (animación corta de 1.1s),
+    // se vuelve a disparar la próxima vez con el siguiente intervalo
+    setTimeout(() => ring.classList.remove('pulsing'), 1200);
+  }
+ 
+  function stopReminders() {
+    stopped = true;
+    clearInterval(intervalId);
+    bubble.classList.remove('visible');
+  }
+ 
+  // Primer recordatorio a los 20s de cargar la página (no de inmediato,
+  // para no saturar al usuario apenas llega), luego cada 45s.
+  setTimeout(() => {
+    showReminder();
+    intervalId = setInterval(showReminder, REMINDER_INTERVAL);
+  }, 20000);
+ 
+  // Si el usuario hace clic en el botón real de WhatsApp, ya inició
+  // la conversación — dejamos de insistir.
+  btn.addEventListener('click', stopReminders);
+ 
+  // Si cierra la burbuja manualmente, respetamos eso también.
+  closeBt.addEventListener('click', stopReminders);
+})();
  
  
