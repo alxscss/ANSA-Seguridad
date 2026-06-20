@@ -815,5 +815,44 @@ document.addEventListener('DOMContentLoaded', function() {
   // Si cierra la burbuja manualmente, respetamos eso también.
   closeBt.addEventListener('click', stopReminders);
 })();
+
+(function () {
+  const isMobile = () => window.innerWidth < 992;
  
+  // Los dos toggles que necesitan comportamiento condicional:
+  // 1) el link padre "Servicios"
+  // 2) el link anidado "Guardias de Seguridad"
+  const toggles = [
+    document.getElementById('navServicios'),
+    document.querySelector('.dropdown-toggle-submenu')
+  ].filter(Boolean);
+ 
+  if (!toggles.length) return;
+ 
+  function applyMode() {
+    toggles.forEach(link => {
+      if (isMobile()) {
+        // Móvil: necesita data-bs-toggle para que el primer tap
+        // abra el submenú en vez de navegar de inmediato.
+        link.setAttribute('data-bs-toggle', 'dropdown');
+      } else {
+        // Desktop: SIN data-bs-toggle. El link es un <a> normal:
+        // un clic navega directo a su href. El menú se abre por
+        // separado solo con :hover (tu CSS ya existente).
+        link.removeAttribute('data-bs-toggle');
+      }
+    });
+  }
+ 
+  // Aplica el modo correcto al cargar...
+  applyMode();
+ 
+  // ...y lo vuelve a evaluar si el usuario rota su dispositivo o
+  // redimensiona la ventana cruzando el límite de 992px.
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(applyMode, 150);
+  });
+})();
  
