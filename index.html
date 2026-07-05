@@ -22,6 +22,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
 
@@ -55,23 +58,27 @@
     </div>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-    <img src="img/logo-ansa.jpg" alt="ANSA Seguridad Privada" style="height: 45px; width: auto;" class="me-2" loading="lazy">
-    <span class="fw-bold fs-4">ANSA Seguridad Privada</span>
-</a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+    <div class="container">
+        
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="img/logo-ansa.jpg" alt="ANSA Seguridad Privada" class="ansa-logo me-2" loading="lazy">
+            <span class="ansa-brand-text">
+                
+                <span class="ansa-seguridad">ANSA Seguridad Privada</span>
+            </span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
             <ul class="navbar-nav fw-medium align-items-center">
                 <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
                 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="servicios.html" id="navServicios" role="button" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="servicios.html" id="navServicios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Servicios
                     </a>
                     
@@ -110,6 +117,7 @@
                 </li>
             </ul>
         </div>
+        
     </div>
 </nav>
 
@@ -121,27 +129,35 @@
  
   <div class="container position-relative" style="z-index:2;">
  
-    <!-- Eyebrow badge -->
-    <div class="hero-badge mb-4" data-aos="fade-down" data-aos-delay="100">
+    <!-- Eyebrow badge 
+    <div class="hero-badge mb-3" data-aos="fade-down" data-aos-delay="80">
       <span class="badge rounded-pill px-3 py-2"
             style="background:rgba(255,255,255,.15); color:#fff; font-size:.78rem; letter-spacing:.08em; backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.25);">
         <span class="hero-dot me-2"></span>Empresa certificada · SEGOB · SSC CDMX · Edoméx
       </span>
+    </div>-->
+ 
+    <!-- 20 AÑOS — Opción 1 potenciada -->
+    <div class="hero-años" data-aos="zoom-in" data-aos-delay="160">
+      <div class="hero-años-linea"></div>
+      <div class="hero-años-num">20</div>
+      <div class="hero-años-sub">Años protegiendo tu patrimonio</div>
+      <div class="hero-años-linea"></div>
     </div>
  
     <!-- Titular principal -->
-    <h1 class="display-4 text-white fw-bold mb-0 shadow-text" data-aos="fade-up" data-aos-delay="200">
+    <h1 class="display-4 text-white fw-bold mb-0 shadow-text" data-aos="fade-up" data-aos-delay="280">
       Líderes en
     </h1>
  
     <!-- Typewriter pill -->
-    <div class="hero-tw-wrap my-3" data-aos="fade-up" data-aos-delay="300">
+    <div class="hero-tw-wrap my-3" data-aos="fade-up" data-aos-delay="360">
       <span id="tw-text" class="hero-tw-pill"></span><span class="hero-cursor">|</span>
     </div>
  
     <!-- Subtítulo -->
     <p class="text-white lead shadow-text d-none d-md-block mb-5"
-       data-aos="fade-up" data-aos-delay="400"
+       data-aos="fade-up" data-aos-delay="420"
        style="font-size:1.1rem; opacity:.9; max-width:560px; margin:0 auto;">
       Soluciones integrales de seguridad con cobertura y validez legal permanente.
     </p>
@@ -159,29 +175,16 @@
         Nuestros Servicios <i class="fa-solid fa-arrow-right ms-2 fa-sm"></i>
       </a>
     </div>
-
-    <div class="hero-job-banner" data-aos="fade-up" data-aos-delay="550">
-  <a href="empleo.html" class="hero-job-banner-link">
-    <span class="hero-job-banner-icon"><i class="fa-solid fa-user-plus"></i></span>
-    <span class="hero-job-banner-text">
-      ¿Buscas trabajar con nosotros? <strong>Únete a nuestro equipo</strong>
-    </span>
-    <span class="hero-job-banner-arrow"><i class="fa-solid fa-arrow-right"></i></span>
-  </a>
-</div>
  
-    <!-- Stats rápidos -->
-    <div class="hero-stats d-none d-md-flex gap-5 justify-content-center mt-5 pt-3"
-         data-aos="fade-up" data-aos-delay="600">
-      <div class="hero-stat">
-        <span class="hero-stat-num" data-target="20">0</span><span class="text-white fw-bold fs-4">+</span>
-        <p class="hero-stat-label">Años de experiencia</p>
-      </div>
-      
-      <div class="hero-stat hero-stat-divider">
-        <span class="hero-stat-num" data-target="4">0</span>
-        <p class="hero-stat-label">Permisos oficiales</p>
-      </div>
+    <!-- Banner bolsa de trabajo -->
+    <div class="hero-job-banner" data-aos="fade-up" data-aos-delay="560">
+      <a href="empleo.html" class="hero-job-banner-link">
+        <span class="hero-job-banner-icon"><i class="fa-solid fa-user-plus"></i></span>
+        <span class="hero-job-banner-text">
+          ¿Buscas trabajar con nosotros? <strong>Únete a nuestro equipo</strong>
+        </span>
+        <span class="hero-job-banner-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
     </div>
  
   </div>
@@ -253,8 +256,8 @@
         <div class="row g-3" data-aos="fade-up" data-aos-delay="250">
   <div class="col-4">
     <div class="mini-stat rounded-4 text-center p-3">
-      <div class="mini-stat-num" data-target="+19">0</div>
-      <div class="mini-stat-label">Años</div>
+      <div class="mini-stat-num" data-target="10">0</div>
+      <div class="mini-stat-label">Sectores</div>
     </div>
   </div>
   
