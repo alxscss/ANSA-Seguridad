@@ -1369,3 +1369,167 @@ textarea.form-control { resize: vertical; min-height: 110px; }
 .icon-service { color: var(--c-carbon); transition: transform .3s ease, color .3s ease; }
 .service-card:hover { background-color: #ffffff; transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,.15) !important; }
 .service-card:hover .icon-service { transform: scale(1.2); color: var(--c-royal); }
+
+
+/* ── Tipografía Bebas Neue en el navbar ────────────────────── */
+.ansa-brand-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;           /* Bebas Neue solo tiene un weight */
+  font-size: 1.5rem;          /* un poco más grande que fs-4 porque Bebas es condensada */
+  letter-spacing: .04em;
+  color: #1a1a1a;             /* heredará del navbar; en fondo blanco queda oscuro */
+  line-height: 1;
+}
+ 
+/* En móvil, ya ajustamos el logo con .ansa-logo — el texto
+   también se reduce un pelo para no chocar con el hamburguer */
+@media (max-width: 575px) {
+  .ansa-brand-text { font-size: 1.25rem; }
+}
+ 
+ 
+/* ── Sello "20 años" en el hero ────────────────────────────── */
+.hero-años {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+ 
+.hero-años-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1.5px solid rgba(201, 168, 106, .65);
+  border-radius: 4px;
+  padding: .6rem 1.6rem;
+  position: relative;
+}
+ 
+/* Ornamentos laterales del sello */
+.hero-años-inner::before,
+.hero-años-inner::after {
+  content: '✦';
+  color: rgba(201, 168, 106, .6);
+  font-size: .65rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hero-años-inner::before { left: .55rem; }
+.hero-años-inner::after  { right: .55rem; }
+ 
+.hero-años-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  line-height: 1;
+  color: #c9a86a;             /* latón / dorado apagado */
+  letter-spacing: .04em;
+  padding: 0 .5rem;           /* espacio extra para que no toque los ornamentos */
+}
+ 
+.hero-años-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: rgba(255, 255, 255, .88);
+  line-height: 1.4;
+  text-align: left;
+}
+ 
+/* En móvil el sello se reduce un poco */
+@media (max-width: 575px) {
+  .hero-años-num { font-size: 2.2rem; }
+  .hero-años-text { font-size: .7rem; letter-spacing: .1em; }
+  .hero-años-inner { padding: .5rem 1.25rem; gap: .75rem; }
+}
+
+/* Importamos Cinzel como respaldo en la primera línea del CSS */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap');
+
+/* Estilo general para alinear bien el texto con tu logo de Bootstrap */
+.ansa-brand-text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+
+/* La sección de SEGURIDAD PRIVADA con la tipografía exacta */
+.ansa-seguridad {
+  font-family: "Copperplate", "Copperplate Gothic Light", "Cinzel", serif;
+  font-size: 1rem; /* Más pequeño para que el navbar no se rompa en móviles */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em; /* Reduje un poco el espaciado para que se adapte mejor al navbar */
+  color: #333;
+}
+
+/* ── 20 AÑOS — Opción 1 potenciada ──────────────────────────── */
+.hero-años {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .55rem;
+  margin-bottom: 2rem;
+  /* Animación de entrada: zoom-in viene de AOS, pero el brillo
+     aparece aparte con keyframe propio */
+  animation: años-glow-in 1s ease .4s both;
+}
+ 
+@keyframes años-glow-in {
+  from { opacity: 0; transform: scale(.92); filter: brightness(.6); }
+  to   { opacity: 1; transform: scale(1);   filter: brightness(1);  }
+}
+ 
+.hero-años-linea {
+  width: 160px;
+  height: 1.5px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(201,168,106,.3) 15%,
+    rgba(201,168,106,.95) 50%,
+    rgba(201,168,106,.3) 85%,
+    transparent 100%
+  );
+}
+ 
+.hero-años-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 8rem;          /* más grande que la versión anterior */
+  line-height: .88;
+  letter-spacing: .03em;
+  /* degradado dorado de arriba a abajo, como una placa pulida */
+  background: linear-gradient(
+    180deg,
+    #f0d090 0%,
+    #c9a86a 45%,
+    #a07840 75%,
+    #c9a86a 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* sombra suave para que el número flote sobre el fondo oscuro */
+  filter: drop-shadow(0 2px 18px rgba(201,168,106,.45));
+}
+ 
+.hero-años-sub {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;           /* más legible que antes */
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  color: #fff;
+  opacity: .95;
+  text-shadow: 0 1px 12px rgba(0,0,0,.6);
+}
+ 
+/* Móvil: escala sin perder el impacto */
+@media (max-width: 575px) {
+  .hero-años-num  { font-size: 5.5rem; }
+  .hero-años-sub  { font-size: .8rem; letter-spacing: .16em; }
+  .hero-años-linea { width: 110px; }
+}
