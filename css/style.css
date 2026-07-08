@@ -1430,22 +1430,16 @@ textarea.form-control { resize: vertical; min-height: 110px; }
 
 
 
-/* 1. Tamaño base (Para móviles) */
 .ansa-seguridad {
   font-family: "Copperplate", "Copperplate Gothic Light", "Cinzel", serif;
-  font-size: 0.9rem; /* Más pequeño para que quepa perfecto en celular */
+  
+  /* clamp(Tamaño Mínimo en móvil, Tamaño Dinámico, Tamaño Máximo en PC) */
+  font-size: clamp(0.85rem, 2.5vw, 1.3rem); 
+  
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.10em; /* Un poquito menos de espaciado en móvil ayuda mucho */
+  letter-spacing: 0.15em;
   color: #fff;
-}
-
-/* 2. Tamaño para PC (Pantallas de 768px en adelante) */
-@media (min-width: 768px) {
-  .ansa-seguridad {
-    font-size: 1.3rem; /* El tamaño que te gusta para PC */
-    letter-spacing: 0.15em; /* Regresamos a tu espaciado original */
-  }
 }
 
 
