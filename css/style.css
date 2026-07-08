@@ -42,17 +42,15 @@
    19. Footer
    20. Utilidades (back to top, service cards)
    ===================================================================== */
-
-
 /* =====================================================================
    1. VARIABLES Y RESET GLOBAL
    ===================================================================== */
 :root {
-  /* Acción / marca */
-  --c-royal:        #0a3d62;
-  --c-royal-dark:   #062c48;
-  --c-royal-deep:   #051f33;  /* azul rey casi-negro: reemplaza fondos de sección oscuros */
-  --c-royal-soft:   rgba(10, 61, 98, .15);
+  /* Acción / marca - Azul Eléctrico como color principal */
+  --c-royal:        #172BDE;
+  --c-royal-dark:   #1120a3; /* Tono ligeramente más oscuro para contrastes/hover */
+  --c-royal-deep:   #09115c; /* Azul muy oscuro para reemplazar fondos casi-negros */
+  --c-royal-soft:   rgba(23, 43, 222, 0.15); /* Transparencia basada en el azul eléctrico */
 
   /* Atención institucional */
   --c-seal:         #9c1c2e;
@@ -153,22 +151,43 @@ footer { background-color: var(--c-royal-deep); }
   .ansa-brand-text { font-size: 1.05rem; }
 }
 
+/* Letras del logo en blanco para que resalten en el fondo azul */
+.ansa-brand-text { color: #ffffff !important; }
+
 #main-navbar {
+  background-color: var(--c-royal);
   transition: background-color .3s ease, box-shadow .3s ease, padding .25s ease;
 }
 #main-navbar.navbar-scrolled {
-  background-color: #fff !important;
-  box-shadow: 0 2px 20px rgba(0,0,0,.10);
+  background-color: var(--c-royal) !important;
+  box-shadow: 0 2px 20px rgba(0,0,0,.30);
   padding-top: .4rem !important;
   padding-bottom: .4rem !important;
 }
 
-.navbar-nav .nav-link { transition: color .25s ease; }
+/* Enlaces principales en blanco */
+.navbar-nav .nav-link { 
+  color: #ffffff !important; 
+  transition: color .25s ease; 
+}
 .navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active { color: var(--c-royal) !important; }
+.navbar-nav .nav-link.active { 
+  color: rgba(255, 255, 255, 0.75) !important; 
+}
 .navbar-nav .nav-link.active { font-weight: 600; }
 
-.navbar .btn-primary { box-shadow: 0 2px 8px rgba(10, 61, 98, .25); }
+/* Ajuste del botón en el navbar para que contraste bien */
+.navbar .btn-primary { 
+  background-color: #ffffff;
+  color: var(--c-royal);
+  border: none;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .25); 
+}
+.navbar .btn-primary:hover {
+  background-color: var(--c-light);
+  color: var(--c-royal-dark);
+}
 
 .dropdown-menu-servicios {
   min-width: 280px;
@@ -221,6 +240,12 @@ footer { background-color: var(--c-royal-deep); }
 }
 
 @media (max-width: 991px) {
+  /* Al cambiar a móvil, el menú desplegable hereda fondo azul, así que ponemos las letras blancas */
+  #main-navbar .navbar-collapse {
+    background-color: var(--c-royal);
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
   .dropdown-submenu > .submenu,
   .dropdown-menu.submenu {
     display: none;
@@ -234,11 +259,16 @@ footer { background-color: var(--c-royal-deep); }
     border-radius: .6rem;
   }
   .dropdown-submenu:hover > .submenu { display: block; }
+  /* Hamburguesa de color blanco */
+  .navbar-toggler {
+    border-color: rgba(255,255,255,0.5);
+  }
+  .navbar-toggler-icon {
+    filter: invert(1); /* Pinta el ícono hamburguesa de blanco */
+  }
 }
 
 [data-sector-link][aria-expanded="true"] { color: var(--c-royal) !important; }
-
-
 /* =====================================================================
    4. HERO
    ===================================================================== */
@@ -1388,62 +1418,6 @@ textarea.form-control { resize: vertical; min-height: 110px; }
 }
  
  
-/* ── Sello "20 años" en el hero ────────────────────────────── */
-.hero-años {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
- 
-.hero-años-inner {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  border: 1.5px solid rgba(201, 168, 106, .65);
-  border-radius: 4px;
-  padding: .6rem 1.6rem;
-  position: relative;
-}
- 
-/* Ornamentos laterales del sello */
-.hero-años-inner::before,
-.hero-años-inner::after {
-  content: '✦';
-  color: rgba(201, 168, 106, .6);
-  font-size: .65rem;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.hero-años-inner::before { left: .55rem; }
-.hero-años-inner::after  { right: .55rem; }
- 
-.hero-años-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 3rem;
-  line-height: 1;
-  color: #c9a86a;             /* latón / dorado apagado */
-  letter-spacing: .04em;
-  padding: 0 .5rem;           /* espacio extra para que no toque los ornamentos */
-}
- 
-.hero-años-text {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  font-size: .78rem;
-  text-transform: uppercase;
-  letter-spacing: .14em;
-  color: rgba(255, 255, 255, .88);
-  line-height: 1.4;
-  text-align: left;
-}
- 
-/* En móvil el sello se reduce un poco */
-@media (max-width: 575px) {
-  .hero-años-num { font-size: 2.2rem; }
-  .hero-años-text { font-size: .7rem; letter-spacing: .1em; }
-  .hero-años-inner { padding: .5rem 1.25rem; gap: .75rem; }
-}
 
 /* Importamos Cinzel como respaldo en la primera línea del CSS */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap');
@@ -1459,77 +1433,189 @@ textarea.form-control { resize: vertical; min-height: 110px; }
 /* La sección de SEGURIDAD PRIVADA con la tipografía exacta */
 .ansa-seguridad {
   font-family: "Copperplate", "Copperplate Gothic Light", "Cinzel", serif;
-  font-size: 1rem; /* Más pequeño para que el navbar no se rompa en móviles */
+  font-size: 1.3rem; /* Más pequeño para que el navbar no se rompa en móviles */
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.15em; /* Reduje un poco el espaciado para que se adapte mejor al navbar */
-  color: #333;
+  color: #fff;
 }
 
-/* ── 20 AÑOS — Opción 1 potenciada ──────────────────────────── */
-.hero-años {
+
+.ansa-seguridad-n {
+  font-family: "Copperplate", "Copperplate Gothic Light", "Cinzel", serif;
+  font-size: 1.5rem; /* Más pequeño para que el navbar no se rompa en móviles */
+  font-weight: 1200;
+  text-transform: uppercase;
+  letter-spacing: 0.15em; /* Reduje un poco el espaciado para que se adapte mejor al navbar */
+  color: #000000;
+}
+
+/* ── BADGE 20 AÑOS ───────────────────────────────────────────────── */
+
+.premium-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem auto 2rem;
+  position: relative;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
+}
+
+.premium-badge.pop-in {
+  animation: badgeEntrance 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes badgeEntrance {
+  0%   { transform: scale(0.7) translateY(12px); opacity: 0; }
+  60%  { transform: scale(1.05) translateY(-3px); opacity: 1; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.premium-badge.scrolled {
+  transform: scale(0.65) translateY(-28px);
+  opacity: 0.7;
+}
+
+/* Círculo principal */
+.badge-emblem {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .55rem;
-  margin-bottom: 2rem;
-  /* Animación de entrada: zoom-in viene de AOS, pero el brillo
-     aparece aparte con keyframe propio */
-  animation: años-glow-in 1s ease .4s both;
+  justify-content: center;
+  width: 148px;
+  height: 148px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #1c1a14 0%, #0d0c09 100%);
+  box-shadow:
+    0 0 0 1.5px rgba(212, 175, 55, 0.15),
+    0 0 0 3px rgba(0, 0, 0, 0.6),
+    0 8px 32px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(252, 246, 186, 0.08),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.5);
 }
- 
-@keyframes años-glow-in {
-  from { opacity: 0; transform: scale(.92); filter: brightness(.6); }
-  to   { opacity: 1; transform: scale(1);   filter: brightness(1);  }
-}
- 
-.hero-años-linea {
-  width: 160px;
-  height: 1.5px;
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(201,168,106,.3) 15%,
-    rgba(201,168,106,.95) 50%,
-    rgba(201,168,106,.3) 85%,
-    transparent 100%
+
+/* Anillo dorado con rotación suave */
+.badge-emblem::before {
+  content: '';
+  position: absolute;
+  inset: -3.5px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    #6b4c11 0%,
+    #bf953f 15%,
+    #fcf6ba 30%,
+    #b38728 45%,
+    #fff2a8 55%,
+    #b38728 65%,
+    #fcf6ba 78%,
+    #bf953f 90%,
+    #6b4c11 100%
   );
+  animation: ringRotate 8s linear infinite;
+  z-index: -1;
 }
- 
-.hero-años-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 8rem;          /* más grande que la versión anterior */
-  line-height: .88;
-  letter-spacing: .03em;
-  /* degradado dorado de arriba a abajo, como una placa pulida */
+
+@keyframes ringRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Máscara interior para aislar el anillo */
+.badge-emblem::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3.5px #0d0c09;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Número 20 */
+.hero-años-num.gold-text {
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -3px;
+  margin: 0;
+  font-family: 'Georgia', 'Times New Roman', serif;
   background: linear-gradient(
-    180deg,
-    #f0d090 0%,
-    #c9a86a 45%,
-    #a07840 75%,
-    #c9a86a 100%
+    170deg,
+    #fff8d6 0%,
+    #f5d060 25%,
+    #c8960c 55%,
+    #f5d060 75%,
+    #fff8d6 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  /* sombra suave para que el número flote sobre el fondo oscuro */
-  filter: drop-shadow(0 2px 18px rgba(201,168,106,.45));
+  color: transparent;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+  position: relative;
+  z-index: 1;
 }
- 
-.hero-años-sub {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  font-size: 1rem;           /* más legible que antes */
+
+/* Estrellas */
+.hero-años-stars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #d4af37;
+  font-size: 0.7rem;
+  margin-top: 6px;
+  position: relative;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+/* Listón */
+.hero-años-sub.gold-ribbon {
+  position: relative;
+  z-index: 2;
+  margin-top: -12px;
+  padding: 7px 28px;
+  background: linear-gradient(
+    to right,
+    #7a4d10 0%,
+    #bf953f 20%,
+    #f5e97a 45%,
+    #fcf6ba 50%,
+    #f5e97a 55%,
+    #bf953f 80%,
+    #7a4d10 100%
+  );
+  color: #2a1a00;
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  letter-spacing: .22em;
-  color: #fff;
-  opacity: .95;
-  text-shadow: 0 1px 12px rgba(0,0,0,.6);
+  border-radius: 2px;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
 }
- 
-/* Móvil: escala sin perder el impacto */
-@media (max-width: 575px) {
-  .hero-años-num  { font-size: 5.5rem; }
-  .hero-años-sub  { font-size: .8rem; letter-spacing: .16em; }
-  .hero-años-linea { width: 110px; }
+
+.hero-años-sub.gold-ribbon::before,
+.hero-años-sub.gold-ribbon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 16px solid transparent;
+  z-index: -1;
+}
+
+.hero-años-sub.gold-ribbon::before {
+  left: -18px;
+  border-right-color: #7a4d10;
+}
+
+.hero-años-sub.gold-ribbon::after {
+  right: -18px;
+  border-left-color: #7a4d10;
 }
