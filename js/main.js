@@ -765,7 +765,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 })();
 
-
+ 
 (function () {
   const bubble  = document.getElementById('wa-bubble');
   const btn     = document.getElementById('wa-float-btn');
@@ -855,4 +855,26 @@ document.addEventListener('DOMContentLoaded', function() {
     resizeTimer = setTimeout(applyMode, 150);
   });
 })();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const badge20 = document.getElementById('badge-20');
+  
+  if (badge20) {
+    // 1. Añadir el efecto de resplandor inicial tras el delay de AOS
+    setTimeout(() => {
+      badge20.classList.add('pop-in');
+    }, 200); // Ligeramente después del data-aos-delay para asegurar que ya es visible
+
+    // 2. Escuchar el scroll para reducir el tamaño de la insignia
+    window.addEventListener('scroll', () => {
+      // Si el usuario baja más de 80px, la insignia se hace pequeña
+      if (window.scrollY > 80) {
+        badge20.classList.add('scrolled');
+      } else {
+        // Si regresa arriba, vuelve a su tamaño glorioso
+        badge20.classList.remove('scrolled');
+      }
+    });
+  }
+});
  
