@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANSA Seguridad Privada | Bolsa de Trabajo</title>
+    <title>ANSA Seguridad Privada</title>
     <link rel="icon" type="image/png" href="img/logo-ansa.jpg">
-
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
@@ -18,13 +17,30 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
+
+    
+<div id="ansa-toast" role="status" aria-live="polite">
+  <div class="ansa-toast-icon"><i class="fa-solid fa-check"></i></div>
+  <div class="ansa-toast-text">
+    <strong>¡Mensaje enviado!</strong>
+    <span>Te contactaremos en las próximas horas.</span>
+  </div>
+  <button class="ansa-toast-close" aria-label="Cerrar notificación">&times;</button>
+</div>
+
+
+
 </head>
 <body>
 
@@ -33,9 +49,9 @@
             <div class="social-icons">
                 <a href="https://www.facebook.com/profile.php?id=61580249053205" class="text-white-50 me-3 text-decoration-none"><i class="fa-brands fa-facebook-f"></i></a>
                 <a href="#" class="text-white-50 me-3 text-decoration-none"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="text-white-50 text-decoration-none"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="text-white-50 fs-5 text-decoration-none footer-icon"><i class="fa-brands fa-linkedin-in"></i></a>
             </div>
-             <div class="contact-info small d-none d-md-block">
+            <div class="contact-info small d-none d-md-block">
                 <a href="tel:+525538723564" class="text-reset text-decoration-none me-3">
   <i class="fa-solid fa-phone me-1"></i> 55 38 72 35 64
 </a>
@@ -46,7 +62,6 @@
         </div>
     </div>
 
-    
 <nav id="main-navbar" class="navbar navbar-expand-lg shadow-sm sticky-top">
     <div class="container">
         
@@ -64,7 +79,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
             <ul class="navbar-nav fw-medium align-items-center">
                 <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.html#nosotros">Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
                 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="servicios.html" id="navServicios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -102,7 +117,7 @@
                 <li class="nav-item"><a class="nav-link" href="empleo.html">Bolsa de Trabajo</a></li>
                 <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
                 <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-                    <a href="empleo.html#cotizar" class="btn btn-primary rounded-pill px-4">Cotizar</a>
+                    <a href="index.html#cotizacion" class="btn btn-primary rounded-pill px-4">Cotizar</a>
                 </li>
             </ul>
         </div>
@@ -110,175 +125,441 @@
     </div>
 </nav>
 
-    <header class="py-5 text-white text-center" style="background-color: #08314e;" data-aos="fade-down">
-        <div class="container py-4">
-            <h1 class="display-5 fw-bold">Bolsa de Trabajo</h1>
-            <div class="title-line mx-auto bg-white mb-3" style="width: 80px; height: 4px;"></div>
-            <p class="lead">Únete a una empresa líder en seguridad privada. Buscamos talento como tú.</p>
+<header class="hero-section d-flex align-items-center text-center position-relative overflow-hidden">
+
+  <canvas id="hero-canvas" class="position-absolute top-0 start-0 w-100 h-100"
+          style="pointer-events:none; opacity:.35;"></canvas>
+
+  <div class="container position-relative" style="z-index:2;">
+
+    <!-- Insignia 20 años -->
+    <div id="badge-20" class="hero-años premium-badge" data-aos="zoom-in" data-aos-delay="160">
+      <div class="badge-emblem">
+        <div class="hero-años-num gold-text">20</div>
+        <div class="hero-años-stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star fa-lg mx-1"></i>
+          <i class="fa-solid fa-star"></i>
         </div>
-    </header>
+      </div>
+      <div class="hero-años-sub gold-ribbon">Años protegiendo tu patrimonio</div>
+    </div>
 
+    <h1 class="display-4 text-white fw-bold mb-0 shadow-text" data-aos="fade-up" data-aos-delay="280">
+      Líderes en
+    </h1>
 
-<section id="postulacion" class="py-5 bg-white" data-aos="fade-up">
+    <div class="hero-tw-wrap my-3" data-aos="fade-up" data-aos-delay="360">
+      <span id="tw-text" class="hero-tw-pill"></span><span class="hero-cursor">|</span>
+    </div>
+
+    <p class="text-white lead shadow-text d-none d-md-block mb-5"
+       data-aos="fade-up" data-aos-delay="420"
+       style="font-size:1.1rem; opacity:.9; max-width:560px; margin:0 auto;">
+      Soluciones integrales de seguridad con cobertura y validez legal permanente.
+    </p>
+
+    <div class="d-flex gap-3 justify-content-center flex-wrap mt-2"
+         data-aos="fade-up" data-aos-delay="500">
+      <a href="index.html#cotizacion"
+         class="btn btn-light btn-lg rounded-pill px-5 fw-semibold shadow-sm">
+        Solicitar Cotización
+      </a>
+      <a href="servicios.html"
+         class="btn btn-outline-light btn-lg rounded-pill px-4"
+         style="backdrop-filter:blur(4px);">
+        Nuestros Servicios <i class="fa-solid fa-arrow-right ms-2 fa-sm"></i>
+      </a>
+    </div>
+
+    <div class="hero-job-banner" data-aos="fade-up" data-aos-delay="560">
+      <a href="empleo.html" class="hero-job-banner-link">
+        <span class="hero-job-banner-icon"><i class="fa-solid fa-user-plus"></i></span>
+        <span class="hero-job-banner-text">
+          ¿Buscas trabajar con nosotros? <strong>Únete a nuestro equipo</strong>
+        </span>
+        <span class="hero-job-banner-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    </div>
+
+  </div>
+
+  <a href="#nosotros" class="hero-scroll-arrow position-absolute" aria-label="Ir a Nosotros">
+    <i class="fa-solid fa-chevron-down"></i>
+  </a>
+
+</header>
+
+    <section id="nosotros" class="py-5 bg-light" data-aos="fade-up">
   <div class="container py-4">
  
-    <div class="text-center mb-5">
-      <span class="label-eyebrow justify-content-center">Únete al Equipo</span>
-      <h2 class="h-display mt-2" style="font-size:2rem; color:var(--c-navy);">
-  ¿Por qué trabajar en <br>
-  <span class="ansa-seguridad-n">ANSA Seguridad Privada?</span>
-</h2><div class="title-line mx-auto mt-3 mb-3"></div>
-      <p class="text-muted mx-auto" style="max-width:600px;">
-        Ofrecemos un entorno laboral estable, profesional y con oportunidades de crecimiento real, con respaldo institucional desde el primer día.
-      </p>
-    </div>
+    <div class="row align-items-center g-5">
  
-    <div class="row g-4">
+      <!-- Columna izquierda: texto -->
+      <div class="col-lg-6">
+        <span class="text-uppercase small fw-bold text-secondary" style="letter-spacing:.08em;">Quiénes somos</span>
+        <h2 class="ansa-seguridad-n mt-1 mb-1">ANSA Seguridad Privada</h2>
+        <div class="title-line mb-4"></div>
  
-      <!-- ═══ Columna izquierda: sticky ═══ -->
-      <div class="col-lg-5">
-        <div class="empleo-sticky-wrap">
+        <p class="text-muted">
+          Somos una organización firmemente consolidada en el mercado nacional, dedicada a proporcionar asesoría y alternativas profesionales en materia de Seguridad Privada. Nuestro compromiso absoluto es satisfacer las necesidades de resguardo y protección de nuestros clientes bajo los más estrictos estándares de calidad.
+        </p>
+        <p class="text-muted">
+          Todo nuestro personal operativo pasa por un riguroso proceso de evaluación previa administrado por el área de Recursos Humanos, garantizando la plena verificación de datos, entornos sociofamiliares y antecedentes confiables.
+        </p>
  
-          <!-- Beneficios -->
-          <div class="empleo-benefits mb-4">
-            <div class="empleo-benefit-item">
-              <i class="fa-solid fa-circle-check"></i>
-              <span>Prestaciones de ley desde el primer día.</span>
-            </div>
-            <div class="empleo-benefit-item">
-              <i class="fa-solid fa-circle-check"></i>
-              <span>Pagos puntuales y uniformes gratuitos.</span>
-            </div>
-            <div class="empleo-benefit-item">
-              <i class="fa-solid fa-circle-check"></i>
-              <span>Capacitación certificada y ambiente estable.</span>
-            </div>
+        <!-- Badges de certificaciones -->
+        <div class="d-flex flex-wrap gap-2 mt-4">
+          <span class="cert-badge"><i class="fa-solid fa-shield-check me-1"></i> SEGOB</span>
+          <span class="cert-badge"><i class="fa-solid fa-shield-check me-1"></i> SSC CDMX</span>
+          <span class="cert-badge"><i class="fa-solid fa-shield-check me-1"></i> Edoméx</span>
+          <span class="cert-badge"><i class="fa-solid fa-shield-check me-1"></i> REPSE · STPS</span>
+        </div>
+      </div>
+ 
+      <!-- Columna derecha: misión/visión mejoradas + contador inline -->
+      <div class="col-lg-6">
+ 
+        <!-- Misión -->
+        <div class="mv-card mb-3" data-aos="fade-left" data-aos-delay="100">
+          <div class="mv-icon">
+            <i class="fa-solid fa-bullseye"></i>
           </div>
+          <div class="mv-body">
+            <h5 class="fw-bold mb-1">Misión</h5>
+            <p class="text-muted small mb-0">
+              Proporcionar asesoría y alternativas de manera profesional en materia de Seguridad Privada, para satisfacer plenamente las necesidades de nuestros clientes.
+            </p>
+          </div>
+        </div>
  
-          <!-- Proceso de 7 pasos -->
-<div class="empleo-process mb-4">
-  <h6 class="empleo-process-title">Qué esperar después de aplicar</h6>
-  
-  <!-- Paso 1 -->
-  <div class="empleo-step">
-    <div class="empleo-step-num">1</div>
-    <div class="empleo-step-body">
-      <h6>Llenar solicitud</h6>
-      <p>Completa el formulario inicial con tus datos generales y de contacto.</p>
+        <!-- Visión -->
+        <div class="mv-card mb-4" data-aos="fade-left" data-aos-delay="200">
+          <div class="mv-icon" style="background:#1a1a2e;">
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <div class="mv-body">
+            <h5 class="fw-bold mb-1">Visión</h5>
+            <p class="text-muted small mb-0">
+              Consolidarnos como una de las mejores empresas prestadoras de servicios de Seguridad Privada, con la aprobación total de nuestros clientes.
+            </p>
+          </div>
+        </div>
+ 
+        <div class="row g-3" data-aos="fade-up" data-aos-delay="250">
+  <div class="col-4">
+    <div class="mini-stat rounded-4 text-center p-3">
+      <div class="mini-stat-num" data-target="10">0</div>
+      <div class="mini-stat-label">Sectores</div>
     </div>
   </div>
   
-  <!-- Paso 2 -->
-  <div class="empleo-step">
-    <div class="empleo-step-num">2</div>
-    <div class="empleo-step-body">
-      <h6>Recepción de solicitud</h6>
-      <p>Nuestro equipo de Recursos Humanos recibe y analiza tu perfil.</p>
+  <div class="col-4">
+    <div class="mini-stat rounded-4 text-center p-3">
+      <div class="mini-stat-text fs-2 fw-bold">Clientes</div>
+      <div class="mini-stat-label">Satisfechos</div>
     </div>
   </div>
   
-  <!-- Paso 3 -->
-  <div class="empleo-step">
-    <div class="empleo-step-num">3</div>
-    <div class="empleo-step-body">
-      <h6>Asignación de entrevista</h6>
-      <p>Te contactamos para programar una cita y conocer más sobre tu experiencia.</p>
-    </div>
-  </div>
-  
-  <!-- Paso 4 -->
-  <div class="empleo-step">
-    <div class="empleo-step-num">4</div>
-    <div class="empleo-step-body">
-      <h6>Aplicación de pruebas correspondientes</h6>
-      <p>Realizamos las evaluaciones técnicas y psicométricas necesarias para el puesto.</p>
-    </div>
-  </div>
-
-  <!-- Paso 5 -->
-  <div class="empleo-step">
-    <div class="empleo-step-num">5</div>
-    <div class="empleo-step-body">
-      <h6>Proceso de Contratación</h6>
-      <p>Revisión de documentos y firma de contrato para oficializar tu ingreso.</p>
-    </div>
-  </div>
-
-  <!-- Paso 6 -->
-  <div class="empleo-step">
-    <div class="empleo-step-num">6</div>
-    <div class="empleo-step-body">
-      <h6>Capacitación</h6>
-      <p>Formación en consignas básicas, procedimientos y entrenamiento inicial.</p>
-    </div>
-  </div>
-
-  <!-- Paso 7 -->
-  <div class="empleo-step empleo-step-last">
-    <div class="empleo-step-num">7</div>
-    <div class="empleo-step-body">
-      <h6>Integración a la plantilla correspondiente</h6>
-      <p>Asignación a tu puesto definitivo con todo el respaldo institucional.</p>
+  <div class="col-4">
+    <div class="mini-stat rounded-4 text-center p-3">
+      <div class="mini-stat-num" data-target="100">0</div>
+      <div class="mini-stat-label">% Legal</div>
     </div>
   </div>
 </div>
  
-          <!-- Acordeón de requisitos -->
-          <div class="accordion mb-4" id="accordionRequisitos">
-            <div class="accordion-item border-0 rounded-3 overflow-hidden empleo-accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed fw-bold rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePerfil" style="background-color:#f8f9fa; color:#1a1a1a;">
-                  <i class="fa-solid fa-clipboard-user me-3 text-secondary"></i> Ver Perfil Requerido (Filtro Oficial)
-                </button>
-              </h2>
-              <div id="collapsePerfil" class="accordion-collapse collapse" data-bs-parent="#accordionRequisitos">
-                <div class="accordion-body bg-white text-muted small p-4" style="line-height: 1.6;">
-                  <h6 class="fw-bold text-dark mb-2">Género Masculino:</h6>
-                  <ul class="ps-3 mb-3">
-                    <li>Mexicano por nacimiento.</li>
-                    <li>Estatura de 1.65 MTS. mínimo.</li>
-                    <li>Edad entre 25 a 50 años.</li>
-                    <li>Educación básica media terminada.</li>
-                    <li>Cartilla del SMN y Credencial de Elector.</li>
-                  </ul>
- 
-                  <h6 class="fw-bold text-dark mb-2">Género Femenino:</h6>
-                  <ul class="ps-3 mb-0">
-                    <li>Mexicana por nacimiento.</li>
-                    <li>Estatura de 1.60 MTS. mínimo.</li>
-                    <li>Edad entre 25 a 40 años.</li>
-                    <li>Educación básica terminada y Credencial.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
- 
-          <!-- Aviso RRHH -->
-          <div class="empleo-notice">
-            <i class="fa-solid fa-circle-info"></i>
-            <span>El área de Recursos Humanos realizará una verificación estricta de datos, domicilio y antecedentes.</span>
-          </div>
- 
-        </div>
       </div>
- 
-      <!-- ═══ Columna derecha: formulario (sin cambios funcionales) ═══ -->
-      <div class="col-lg-7">
-        <div class="card shadow-sm border-0 rounded-4 overflow-hidden empleo-form-card">
-         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc7GU-cGTuyTsOd2YH4n8k5_EDFutf5Q0nCzhOGI_z30kfWEg/viewform?embedded=true" width="100%" height="3721" frameborder="0" marginheight="0" marginwidth="0" class="ansa-gform">Cargando…</iframe>
- 
-        </div>
-      </div>
- 
     </div>
   </div>
 </section>
+
+    
+    <section id="permisos" class="py-5 bg-white border-top border-bottom" data-aos="fade-up">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="text-primary text-uppercase small fw-bold tracking-wider" style="color: #4a5568 !important;">Cumplimiento Normativo</span>
+                <h2 class="fw-bold mt-1">Certificaciones y Permisos Oficiales</h2>
+                <div class="title-line mx-auto mb-3"></div>
+                <p class="text-muted">Operamos bajo el más estricto marco legal e institucional, garantizando total tranquilidad jurídica a nuestros clientes.</p>
+            </div>
+
+            <!-- ROW CON 4 CARDS DE IGUAL ALTURA -->
+            <div class="row g-4">
+                <!-- 1. Registro Federal (SEGOB) -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4 custom-card d-flex flex-column">
+                        <div class="card-body flex-grow-1 d-flex flex-column">
+                            <i class="fa-solid fa-building-shield fs-1 mb-3" style="color: #1a1a1a;"></i>
+                            <h5 class="fw-bold">Registro Federal (SEGOB)</h5>
+                            <p class="text-secondary small mb-2"><strong>Reg. Permanente:</strong> DGSP/119-09/1381</p>
+                            <p class="text-muted small flex-grow-1">Autorización nacional para prestar servicios de seguridad privada en los bienes en todo el territorio de la República.</p>
+                            
+                            <button type="button" class="btn btn-dark btn-sm rounded-pill px-4 mt-auto" data-bs-toggle="modal" data-bs-target="#modalFederal">
+                                Ver Oficio Legal
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Permiso SSC CDMX -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4 custom-card d-flex flex-column">
+                        <div class="card-body flex-grow-1 d-flex flex-column">
+                            <i class="fa-solid fa-gavel fs-1 mb-3" style="color: #1a1a1a;"></i>
+                            <h5 class="fw-bold">Permiso SSC CDMX</h5>
+                            <p class="text-secondary small mb-2"><strong>Permiso No:</strong> 5 (Exp. 2515)</p>
+                            <p class="text-muted small flex-grow-1">Revalidación oficial ante la Secretaría de Seguridad Ciudadana en la modalidad de Vigilancia y Protección de Bienes.</p>
+                            
+                            <button type="button" class="btn btn-dark btn-sm rounded-pill px-4 mt-auto" data-bs-toggle="modal" data-bs-target="#modalCDMX">
+                                Ver Oficio Legal
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Secretaría de Seguridad Edoméx -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4 custom-card d-flex flex-column">
+                        <div class="card-body flex-grow-1 d-flex flex-column">
+                            <i class="fa-solid fa-file-contract fs-1 mb-3" style="color: #1a1a1a;"></i>
+                            <h5 class="fw-bold">Secretaría de Seguridad Edoméx</h5>
+                            <p class="text-secondary small mb-2"><strong>Expediente:</strong> SS/221/25-11/II-SP-RA-III</p>
+                            <p class="text-muted small flex-grow-1">Autorización vigente expedida por el Estado de México para la prestación de servicios de seguridad privada intramuros.</p>
+                            
+                            <button type="button" class="btn btn-dark btn-sm rounded-pill px-4 mt-auto" data-bs-toggle="modal" data-bs-target="#modalEdomex">
+                                Ver Oficio Legal
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Registro REPSE - STPS -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4 custom-card d-flex flex-column">
+                        <div class="card-body flex-grow-1 d-flex flex-column">
+                            <i class="fa-solid fa-briefcase fs-1 mb-3" style="color: #1a1a1a;"></i>
+                            <h5 class="fw-bold">Registro REPSE - STPS</h5>
+                            <p class="text-secondary small mb-2"><strong>Registro No.:</strong> ARRA233592024</p>
+                            <p class="text-muted small flex-grow-1">Renovación de Registro ante la Secretaría del Trabajo y Previsión Social para la prestación de servicios especializados de seguridad privada y vigilancia.</p>
+                            
+                            <button type="button" class="btn btn-dark btn-sm rounded-pill px-4 mt-auto" data-bs-toggle="modal" data-bs-target="#modalREPSE">
+                                Ver Oficio Legal
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="modalFederal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow">
+                <div class="modal-header border-0 bg-light rounded-top-4">
+                    <h5 class="modal-title fw-bold"><i class="fa-solid fa-building-shield me-2"></i>Oficio Federal - SEGOB</h5>
+                    <button type="button" class="btn-close" data-bs-theme="dark" data-bs-dispatch="modal" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center bg-white p-4">
+                    <img src="permisos/FEDERAL SEGOBn.png" alt="Permiso Federal ANSA" class="img-fluid rounded shadow-sm" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalCDMX" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow">
+                <div class="modal-header border-0 bg-light rounded-top-4">
+                    <h5 class="modal-title fw-bold"><i class="fa-solid fa-gavel me-2"></i>Permiso de Revalidación - SSC CDMX</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center bg-white p-4">
+                    <img src="permisos/SSC CDMX..png" alt="Permiso SSC CDMX" class="img-fluid rounded shadow-sm" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalEdomex" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow">
+                <div class="modal-header border-0 bg-light rounded-top-4">
+                    <h5 class="modal-title fw-bold"><i class="fa-solid fa-file-contract me-2"></i>Autorización de Servicios - Estado de México</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center bg-white p-4">
+                    <img src="permisos/SECRETARIA SEGURIDAD EDOMEX.png" alt="Permiso Estado de México" class="img-fluid rounded shadow-sm" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NUEVO MODAL REPSE STPS -->
+    <div class="modal fade" id="modalREPSE" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow">
+                <div class="modal-header border-0 bg-light rounded-top-4">
+                    <h5 class="modal-title fw-bold">
+                        <i class="fa-solid fa-briefcase me-2"></i>
+                        Registro REPSE - STPS
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center bg-white p-4">
+                    <img src="permisos/REPSE STPS.png" 
+                         alt="Registro REPSE STPS" 
+                         class="img-fluid rounded shadow-sm">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="sistemas" class="section-tight" style="background-color: var(--c-navy);" data-aos="fade-up">
+  <div class="container">
  
-                
+    <div class="d-flex flex-wrap justify-content-between align-items-end mb-4 gap-3">
+      <div>
+        <span class="label-eyebrow on-dark">Portafolio Operativo</span>
+        <h2 class="h-display text-white mt-2 mb-0" style="font-size:2rem;">Sistemas Integrales de Seguridad</h2>
+      </div>
+      <a href="servicios.html" class="btn btn-outline-light rounded-pill px-4 py-2 fw-semibold d-none d-md-inline-flex align-items-center gap-2" style="font-size:.85rem; border-color:rgba(255,255,255,.25);">
+        Ver portafolio completo <i class="fa-solid fa-arrow-right fa-xs"></i>
+      </a>
+    </div>
+ 
+    <!-- Pista de tarjetas: grid en desktop, scroll-snap en móvil -->
+    <div class="sistemas-track">
+ 
+      <a href="servicios.html?sector=corporativo#intramuros" class="sistemas-card" data-aos="fade-up" data-aos-delay="0">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=500&q=80" alt="">
+        <div class="sistemas-card-overlay"></div>
+        <div class="sistemas-card-body">
+          <i class="fa-solid fa-building"></i>
+          <h6>Corporativos</h6>
+        </div>
+      </a>
+ 
+      <a href="servicios.html?sector=industria#intramuros" class="sistemas-card" data-aos="fade-up" data-aos-delay="60">
+        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80" alt="">
+        <div class="sistemas-card-overlay"></div>
+        <div class="sistemas-card-body">
+          <i class="fa-solid fa-industry"></i>
+          <h6>Industria</h6>
+        </div>
+      </a>
+ 
+      <a href="servicios.html?sector=condominios#intramuros" class="sistemas-card" data-aos="fade-up" data-aos-delay="120">
+        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=500&q=80" alt="">
+        <div class="sistemas-card-overlay"></div>
+        <div class="sistemas-card-body">
+          <i class="fa-solid fa-city"></i>
+          <h6>Condominios</h6>
+        </div>
+      </a>
+ 
+      <a href="servicios.html?sector=transporte#intramuros" class="sistemas-card" data-aos="fade-up" data-aos-delay="180">
+        <img src="img/trasnporte-publico.jpg" alt="">
+        <div class="sistemas-card-overlay"></div>
+        <div class="sistemas-card-body">
+          <i class="fa-solid fa-bus"></i>
+          <h6>Transporte Público</h6>
+        </div>
+      </a>
+ 
+      <a href="servicios.html?sector=residencial#intramuros" class="sistemas-card" data-aos="fade-up" data-aos-delay="240">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=500&q=80" alt="">
+        <div class="sistemas-card-overlay"></div>
+        <div class="sistemas-card-body">
+          <i class="fa-solid fa-house-chimney"></i>
+          <h6>Residencial</h6>
+        </div>
+      </a>
+ 
+    </div>
+ 
+    <!-- Mobile: link completo visible (en desktop ya está arriba) -->
+    <div class="text-center mt-4 d-md-none">
+      <a href="servicios.html" class="btn btn-outline-light rounded-pill px-4 py-2 fw-semibold" style="font-size:.85rem; border-color:rgba(255,255,255,.25);">
+        Ver portafolio completo <i class="fa-solid fa-arrow-right fa-xs ms-1"></i>
+      </a>
+    </div>
+ 
+  </div>
+</section>
 
-
-     <section id="cotizar" class="py-5" style="background-color: #f1f4f8;" data-aos="fade-up">
+   
+<section id="clientes" class="section-tight" style="background:var(--c-bone-deep);" data-aos="fade-up">
+  <div class="container">
+ 
+    <div class="text-center mb-5">
+      <span class="label-eyebrow justify-content-center">Confianza Institucional</span>
+      <h2 class="h-display mt-2" style="font-size:2rem; color:var(--c-navy);">
+  Empresas que confían en <br>
+  <span class="ansa-seguridad-n">ANSA Seguridad Privada</span>
+</h2>
+      <div class="title-line mx-auto mt-3 mb-3"></div>
+      <p class="text-muted mx-auto" style="max-width:540px;">
+        Garantizamos la continuidad operativa de marcas líderes e instituciones destacadas a nivel nacional.
+      </p>
+    </div>
+ 
+    <!-- Grid de clientes: 2 destacados grandes + resto en grid uniforme -->
+    <div class="clientes-grid">
+ 
+      <div class="cliente-tile cliente-tile-lg" data-aos="zoom-in" data-aos-delay="0">
+        <i class="fa-solid fa-bus"></i>
+        <span>Mexibús<br>Estado de México</span>
+      </div>
+ 
+      <div class="cliente-tile cliente-tile-lg" data-aos="zoom-in" data-aos-delay="60">
+        <i class="fa-solid fa-chart-line"></i>
+        <span>KPMG<br>Cárdenas Dosal</span>
+      </div>
+ 
+      <div class="cliente-tile" data-aos="zoom-in" data-aos-delay="100">
+        <i class="fa-solid fa-store"></i>
+        <span>Krispy Kreme</span>
+      </div>
+ 
+      <div class="cliente-tile" data-aos="zoom-in" data-aos-delay="140">
+        <i class="fa-solid fa-house"></i>
+        <span>Quiero Casa</span>
+      </div>
+ 
+      <div class="cliente-tile" data-aos="zoom-in" data-aos-delay="180">
+        <i class="fa-solid fa-baby"></i>
+        <span>Evenflo México</span>
+      </div>
+ 
+      <div class="cliente-tile" data-aos="zoom-in" data-aos-delay="220">
+        <i class="fa-solid fa-bullhorn"></i>
+        <span>Omnicom Mediagroup</span>
+      </div>
+ 
+      <div class="cliente-tile" data-aos="zoom-in" data-aos-delay="260">
+        <i class="fa-solid fa-mug-hot"></i>
+        <span>Office Coffee Service</span>
+      </div>
+ 
+      <div class="cliente-tile" data-aos="zoom-in" data-aos-delay="300">
+        <i class="fa-solid fa-building"></i>
+        <span>Grupo INDI</span>
+      </div>
+ 
+      <div class="cliente-tile" data-aos="zoom-in" data-aos-delay="340">
+        <i class="fa-solid fa-handshake"></i>
+        <span>ASECAM</span>
+      </div>
+ 
+    </div>
+ 
+  </div>
+</section>
+ 
+  </div>
+</section>
+    <section id="cotizacion" class="py-5" style="background-color: #f1f4f8;" data-aos="fade-up">
     <div class="container py-4">
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center mb-4">
@@ -291,7 +572,7 @@
             <div class="col-lg-8">
                 <div class="card border-0 shadow-sm rounded-4">
                     <div class="card-body p-4 p-md-5">
-                        <form id="cotizacion-form" action="https://formsubmit.co/Asesor@ansaseguridad.com.mx" method="POST">
+                        <form id="cotizacion-form" action="https://formspree.io/f/mjgddpvk" method="POST">
                             <input type="hidden" name="_subject" value="Nueva cotización - ANSA Seguridad">
                             
                             <div class="row g-3">
@@ -333,8 +614,7 @@
                                     <label class="form-label fw-bold text-secondary small">Mensaje o Requerimientos Específicos *</label>
                                     <textarea name="mensaje" class="form-control bg-light" rows="4" placeholder="Indique el número de elementos o la modalidad requerida..." required minlength="10" title="Por favor, bríndenos un poco más de detalle (mínimo 10 caracteres)."></textarea>
                                 </div>
-                                <input type="hidden" name="_next" value="empleo.html">
-  <input type="hidden" name="_captcha" value="false">
+                                
                                 <div class="col-12 mt-4 text-center">
                                     <button type="submit" class="btn btn-primary rounded-pill px-5 py-3 fw-bold w-100 text-white">
                                         <span class="btn-text">Enviar Mensaje</span>
@@ -352,8 +632,7 @@
             </div>
         </div>
     </div>
-    </section>
-
+</section>
 
     <footer class="text-white pt-5 pb-3">
         <div class="container">
@@ -363,15 +642,20 @@
   <i class="fa-solid fa-shield-halved me-2"></i>
   <span class="ansa-seguridad-n" style="color: #fff !important;">ANSA Seguridad Privada</span>
 </h4><p class="text-white-50 small">
-                        ANSA Seguridad Privada, S.A. de C.V. Brindamos soluciones integrales de seguridad para proteger su patrimonio, personal y operaciones con el más alto nivel de profesionalismo y legalidad.
+                        Brindamos soluciones de seguridad integral enfocadas en mitigar riesgos y blindar los bienes patrimoniales de nuestros clientes con total apego a las normativas vigentes.
                     </p>
+                    <div class="mt-3">
+                        <a href="#" class="text-white-50 me-3 fs-5 text-decoration-none footer-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="text-white-50 me-3 fs-5 text-decoration-none footer-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-white-50 fs-5 text-decoration-none footer-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
                 </div>
 
                 <div class="col-lg-4 mb-4">
-                    <h5 class="fw-bold mb-3">Enlaces Rápidos</h5>
+                    <h5 class="fw-bold mb-3">Navegación</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none footer-link">Inicio</a></li>
-                        <li class="mb-2"><a href="index.html#nosotros" class="text-white-50 text-decoration-none footer-link">Nosotros</a></li>
+                        <li class="mb-2"><a href="#nosotros" class="text-white-50 text-decoration-none footer-link">Nosotros</a></li>
                         <li class="mb-2"><a href="servicios.html" class="text-white-50 text-decoration-none footer-link">Servicios</a></li>
                         <li class="mb-2"><a href="empleo.html" class="text-white-50 text-decoration-none footer-link">Bolsa de Trabajo</a></li>
                         <li class="mb-2"><a href="contacto.html" class="text-white-50 text-decoration-none footer-link">Contacto</a></li>
@@ -438,7 +722,7 @@
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script src="js/main.js"></script>
 </body>
