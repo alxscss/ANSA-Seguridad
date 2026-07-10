@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             offset: 60,
             delay: 0
         });
+        document.documentElement.classList.add('aos-ready');
     }
 
     // --- 2. IMPROVED TYPEWRITER EFFECT (Hero) ---
@@ -69,20 +70,38 @@ document.addEventListener('DOMContentLoaded', function() {
         const btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
         const btnLoading = submitBtn ? submitBtn.querySelector('.btn-loading') : null;
 
+        form.querySelectorAll('label').forEach((label, index) => {
+            const field = label.parentElement.querySelector('input:not([type="hidden"]), select, textarea');
+            if (!field) return;
+            if (!field.id) field.id = `${form.id || 'form'}-${field.name || index}`;
+            label.htmlFor = field.id;
+        });
+
+        const nameField = form.querySelector('input[name="nombre"]');
+        const emailField = form.querySelector('input[name="email"]');
+        const phoneField = form.querySelector('input[name="telefono"]');
+        if (nameField) nameField.autocomplete = 'name';
+        if (emailField) emailField.autocomplete = 'email';
+        if (phoneField) {
+            phoneField.autocomplete = 'tel';
+            phoneField.inputMode = 'numeric';
+        }
+
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
             const requiredFields = form.querySelectorAll('[required]');
             let isValid = true;
+            let firstInvalid = null;
 
             requiredFields.forEach(field => {
                 field.classList.remove('is-invalid');
-                if (!field.value.trim()) {
+                field.removeAttribute('aria-invalid');
+                if (!field.checkValidity()) {
                     isValid = false;
                     field.classList.add('is-invalid');
-                } else if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
-                    isValid = false;
-                    field.classList.add('is-invalid');
+                    field.setAttribute('aria-invalid', 'true');
+                    if (!firstInvalid) firstInvalid = field;
                 }
             });
 
@@ -92,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     messageBox.textContent = 'Por favor completa los campos requeridos correctamente.';
                     messageBox.classList.remove('d-none');
                 }
+                if (firstInvalid) firstInvalid.focus();
                 return;
             }
 
@@ -134,8 +154,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         form.querySelectorAll('input, textarea, select').forEach(input => {
-            input.addEventListener('input', () => input.classList.remove('is-invalid'));
+            const clearError = () => {
+                input.classList.remove('is-invalid');
+                input.removeAttribute('aria-invalid');
+            };
+            input.addEventListener('input', clearError);
+            input.addEventListener('change', clearError);
         });
+    });
+
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+        const rel = new Set((link.getAttribute('rel') || '').split(/\s+/).filter(Boolean));
+        rel.add('noopener');
+        rel.add('noreferrer');
+        link.setAttribute('rel', [...rel].join(' '));
     });
 
     // --- 4. ELEGANT BACK TO TOP BUTTON (HTML existente, si lo tienes) ---
@@ -251,7 +283,7 @@ document.addEventListener('DOMContentLoaded', function() {
       title: "Seguridad en Corporativos",
       icon: "fa-building",
       badge: "Corporativo",
-      img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+      img: "img/sector-corporativo.jpg",
       html: `<p>Protección especializada para edificios administrativos, complejos de oficinas y centros de negocios. Nuestro personal se enfoca en:</p>
              <ul>
                <li>Control estricto de accesos peatonales y vehiculares.</li>
@@ -263,7 +295,7 @@ document.addEventListener('DOMContentLoaded', function() {
       title: "Seguridad en Comercio",
       icon: "fa-shop",
       badge: "Comercio",
-      img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80",
+      img: "img/sector-comercio.jpg",
       html: `<p>Vigilancia diseñada para mitigar pérdidas y salvaguardar la experiencia de compra en centros comerciales y puntos de venta:</p>
              <ul>
                <li>Prevención activa de pérdidas y conductas delictivas intramuros.</li>
@@ -275,7 +307,7 @@ document.addEventListener('DOMContentLoaded', function() {
       title: "Seguridad Industrial",
       icon: "fa-industry",
       badge: "Industria",
-      img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+      img: "img/sector-industria.jpg",
       html: `<p>Operaciones estrictas para plantas de producción, CEDIS y parques industriales donde el control de inventario es crítico:</p>
              <ul>
                <li>Inspección de transporte de carga, sellos de seguridad y bitácoras de embarque.</li>
@@ -287,7 +319,7 @@ document.addEventListener('DOMContentLoaded', function() {
       title: "Seguridad en Construcción",
       icon: "fa-helmet-safety",
       badge: "Construcción",
-      img: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80",
+      img: "img/sector-construccion.jpg",
       html: `<p>Custodia de obra en proceso, maquinaria y materiales, reduciendo el riesgo de robo y accesos no autorizados en horarios sin actividad laboral:</p>
              <ul>
                <li>Vigilancia nocturna y en días no laborables.</li>
@@ -299,7 +331,7 @@ document.addEventListener('DOMContentLoaded', function() {
       title: "Seguridad en Condominios",
       icon: "fa-city",
       badge: "Condominios",
-      img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80",
+      img: "img/sector-condominios.jpg",
       html: `<p>Vigilancia para edificios verticales y administraciones condominales, equilibrando control de acceso con un trato cordial hacia los residentes:</p>
              <ul>
                <li>Filtro de visitantes y proveedores con bitácora digital.</li>
@@ -311,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function() {
       title: "Seguridad en Fraccionamientos",
       icon: "fa-house-flag",
       badge: "Fraccionamientos",
-      img: "https://images.unsplash.com/photo-1592595896551-12b371d546d5?auto=format&fit=crop&w=800&q=80",
+      img: "img/sector-fraccionamientos.jpg",
       html: `<p>Control de acceso vehicular y peatonal en desarrollos residenciales cerrados, con rondines perimetrales constantes:</p>
              <ul>
                <li>Casetas de acceso con registro de visitantes.</li>
@@ -323,7 +355,7 @@ document.addEventListener('DOMContentLoaded', function() {
       title: "Seguridad en Centros Educativos",
       icon: "fa-graduation-cap",
       badge: "Educativo",
-      img: "img/escuela.jpg",
+      img: "img/escuela.webp",
       html: `<p>Resguardo e integridad para campus universitarios, colegios y centros de enseñanza, priorizando el entorno pacífico:</p>
              <ul>
                <li>Control de acceso estricto a personas ajenas a la comunidad estudiantil.</li>
@@ -335,7 +367,7 @@ document.addEventListener('DOMContentLoaded', function() {
       title: "Seguridad en Transporte Público",
       icon: "fa-bus",
       badge: "Transporte",
-      img: "img/trasnporte-publico.jpg",
+      img: "img/transporte-publico.webp",
       html: `<p>Plantillas operativas especializadas en resguardar infraestructura masiva como estaciones, andenes y terminales:</p>
              <ul>
                <li>Control de accesos en torniquetes y pasillos de flujo masivo.</li>
@@ -347,7 +379,7 @@ document.addEventListener('DOMContentLoaded', function() {
       title: "Seguridad en Eventos Especiales",
       icon: "fa-calendar-star",
       badge: "Eventos",
-      img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80",
+      img: "img/sector-eventos.jpg",
       html: `<p>Operativos de seguridad temporales para conciertos, ferias, congresos y eventos corporativos, con personal dimensionado al aforo esperado:</p>
              <ul>
                <li>Control de acceso y revisión en puntos de entrada.</li>
@@ -359,7 +391,7 @@ document.addEventListener('DOMContentLoaded', function() {
       title: "Seguridad Residencial",
       icon: "fa-house-chimney",
       badge: "Residencial",
-      img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+      img: "img/sector-residencial.jpg",
       html: `<p>Protección familiar y patrimonial para residencias privadas, con personal discreto y protocolos adaptados al estilo de vida de cada familia:</p>
              <ul>
                <li>Identificación obligatoria y control de visitas mediante bitácora o interfón.</li>
@@ -555,11 +587,14 @@ document.addEventListener('DOMContentLoaded', function() {
             lbImg.alt = alt || '';
             lbCap.textContent = alt || '';
             lb.classList.add('open');
+            lb.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
+            lbClose.focus();
         }
 
         function closeLB() {
             lb.classList.remove('open');
+            lb.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
         }
 
@@ -581,9 +616,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // 15. HERO: typewriter de pill blanca (#tw-text)
     // =====================================================
     (function() {
-        const words = ['Seguridad Industrial','Seguridad Empresarial','Protección Residencial','Soluciones Integrales','División Electrónica'];
+        // Categorías y cobertura que aparecen en la oferta real del sitio.
+        // La primera frase también existe en el HTML para evitar un parpadeo
+        // vacío y mantener un mensaje útil si JavaScript no está disponible.
+        const words = [
+            'Seguridad Industrial',
+            'Seguridad Empresarial',
+            'Protección Residencial',
+            'Seguridad para Condominios',
+            'Seguridad Privada en CDMX',
+            'Guardias Intramuros',
+            'Seguridad Electrónica',
+            'Consultoría y Análisis de Riesgos'
+        ];
         const el = document.getElementById('tw-text');
         if (!el) return;
+
+        // Respeta la preferencia de reducir movimiento y deja una frase estable.
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            el.textContent = words[0];
+            return;
+        }
 
         let wIdx = 0, cIdx = 0, deleting = false;
 
@@ -857,24 +910,43 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('[data-current-year]').forEach(el => {
+    el.textContent = new Date().getFullYear();
+  });
+
   const badge20 = document.getElementById('badge-20');
   
   if (badge20) {
-    // 1. Añadir el efecto de resplandor inicial tras el delay de AOS
+    // Año oficial de inicio: se configura una sola vez en data-founded-year.
+    // Con 2006, el distintivo muestra 20 en 2026 y 25 en 2031 automáticamente.
+    const foundedYear = Number.parseInt(badge20.dataset.foundedYear, 10);
+    const currentYear = new Date().getFullYear();
+    const businessYears = Number.isFinite(foundedYear)
+      ? Math.max(0, currentYear - foundedYear)
+      : 20;
+
+    document.querySelectorAll('[data-business-years]').forEach(el => {
+      el.textContent = businessYears;
+    });
+
+    const emblem = badge20.querySelector('.badge-emblem');
+    if (emblem) {
+      emblem.setAttribute('aria-label', `${businessYears} años protegiendo tu patrimonio`);
+    }
+
+    // Añadir el efecto de entrada tras el delay de AOS.
     setTimeout(() => {
       badge20.classList.add('pop-in');
-    }, 200); // Ligeramente después del data-aos-delay para asegurar que ya es visible
+    }, 200);
 
-    // 2. Escuchar el scroll para reducir el tamaño de la insignia
+    // Reducir ligeramente el distintivo al abandonar la parte superior del hero.
     window.addEventListener('scroll', () => {
-      // Si el usuario baja más de 80px, la insignia se hace pequeña
       if (window.scrollY > 80) {
         badge20.classList.add('scrolled');
       } else {
-        // Si regresa arriba, vuelve a su tamaño glorioso
         badge20.classList.remove('scrolled');
       }
-    });
+    }, { passive: true });
   }
 });
  
