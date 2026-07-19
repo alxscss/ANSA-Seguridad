@@ -180,11 +180,11 @@ html:not(.aos-ready) [data-aos] {
 
 .top-bar { background-color: var(--c-royal-deep); }
 
-.ansa-logo { height: 45px; width: auto; transition: height .2s ease; }
-@media (max-width: 991px) { .ansa-logo { height: 58px; } }
-@media (max-width: 575px) {
-  .ansa-logo { height: 52px; }
-  .ansa-brand-text { font-size: 1.05rem; }
+.ansa-logo { height: 70px; width: auto; transition: height .3s ease; }
+@media (max-width: 1500px) { .ansa-logo { height: 70px; } }
+@media (max-width: 700px) {
+  .ansa-logo { height: 70px; }
+  .ansa-brand-text { font-size: 2.5rem; }
 }
 
 /* Letras del logo en blanco para que resalten en el fondo azul */
@@ -1170,6 +1170,234 @@ textarea.form-control { resize: vertical; min-height: 110px; }
 
 .categoria-item { transition: background .2s ease; }
 .categoria-item:hover { background-color: #f0f4ff !important; }
+
+/* Capacitación ANSA: visor deslizable con imágenes independientes */
+.ansa-training {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, .82fr) minmax(0, 1.35fr);
+  gap: clamp(2rem, 4vw, 4.25rem);
+  align-items: center;
+  margin: .5rem 0 4.75rem;
+  padding: clamp(2rem, 4vw, 4rem);
+  overflow: hidden;
+  border-radius: 1.75rem;
+  background: var(--c-royal-deep);
+  box-shadow: 0 24px 60px rgba(9, 17, 92, .18);
+  color: #fff;
+  isolation: isolate;
+}
+.ansa-training::before {
+  content: '';
+  position: absolute;
+  width: 430px;
+  height: 430px;
+  left: -190px;
+  bottom: -260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,175,55,.22), rgba(212,175,55,0) 68%);
+  pointer-events: none;
+  z-index: -1;
+}
+.ansa-training-copy h3 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1.85rem, 3vw, 2.65rem);
+  font-weight: 800;
+  letter-spacing: -.035em;
+}
+.ansa-training-line {
+  width: 64px;
+  height: 3px;
+  margin: 1rem 0 1.4rem;
+  border-radius: 999px;
+  background: var(--c-brass);
+}
+.ansa-training-copy > p:not(.ansa-training-help) {
+  margin: 0;
+  color: rgba(255,255,255,.78);
+  font-size: .96rem;
+  line-height: 1.75;
+}
+.ansa-training-steps {
+  display: grid;
+  gap: 0;
+  margin: 1.65rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(255,255,255,.14);
+}
+.ansa-training-steps li {
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+  padding: .72rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.14);
+  color: rgba(255,255,255,.92);
+  font-size: .84rem;
+}
+.ansa-training-steps span {
+  color: var(--c-brass);
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+.ansa-training-steps strong { font-weight: 700; }
+.ansa-training-help {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin: 1.15rem 0 0;
+  color: rgba(255,255,255,.58);
+  font-size: .72rem;
+}
+.ansa-training-help i { color: var(--c-brass); }
+
+.ansa-training-slider {
+  min-width: 0;
+  outline: none;
+}
+.ansa-training-viewport {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 1.2rem;
+  background: #050a23;
+  box-shadow: 0 18px 40px rgba(0,0,0,.28);
+  touch-action: pan-y;
+  user-select: none;
+}
+.ansa-training-track {
+  display: flex;
+  transform: translate3d(0,0,0);
+  transition: transform .55s cubic-bezier(.22,.8,.22,1);
+  will-change: transform;
+}
+.ansa-training-slide {
+  position: relative;
+  flex: 0 0 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0;
+  overflow: hidden;
+  background: #050a23;
+}
+.ansa-training-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+.ansa-training-slide::after {
+  content: '';
+  position: absolute;
+  inset: 58% 0 0;
+  background: linear-gradient(to top, rgba(5,10,35,.82), transparent);
+  pointer-events: none;
+}
+.ansa-training-slide figcaption {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 1.1rem;
+  left: 1.25rem;
+  z-index: 2;
+  color: #fff;
+  font-size: .82rem;
+  font-weight: 800;
+  letter-spacing: .01em;
+  text-shadow: 0 2px 12px rgba(0,0,0,.8);
+}
+.ansa-training-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,.42);
+  border-radius: 50%;
+  background: rgba(5,10,35,.65);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,.2);
+  transform: translateY(-50%);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+}
+.ansa-training-arrow--prev { left: 1rem; }
+.ansa-training-arrow--next { right: 1rem; }
+.ansa-training-arrow:hover {
+  border-color: var(--c-brass);
+  background: rgba(9,17,92,.9);
+  transform: translateY(-50%) scale(1.06);
+}
+.ansa-training-arrow:focus-visible,
+.ansa-training-slider:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+.ansa-training-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+.ansa-training-dots {
+  display: flex;
+  align-items: center;
+  gap: .52rem;
+}
+.ansa-training-dots button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.34);
+  cursor: pointer;
+  transition: width .25s ease, background-color .25s ease;
+}
+.ansa-training-dots button.is-active {
+  width: 28px;
+  background: var(--c-brass);
+}
+.ansa-training-dots button:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.ansa-training-counter {
+  color: rgba(255,255,255,.65);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+@media (max-width: 991.98px) {
+  .ansa-training { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 575.98px) {
+  .ansa-training {
+    margin-right: -.25rem;
+    margin-left: -.25rem;
+    padding: 1.75rem 1.25rem;
+    border-radius: 1.35rem;
+  }
+  .ansa-training-copy > p:not(.ansa-training-help) { font-size: .9rem; line-height: 1.65; }
+  .ansa-training-help { margin-bottom: .1rem; }
+  .ansa-training-viewport { border-radius: .95rem; }
+  .ansa-training-arrow { width: 40px; height: 40px; }
+  .ansa-training-arrow--prev { left: .65rem; }
+  .ansa-training-arrow--next { right: .65rem; }
+  .ansa-training-slide figcaption { right: 1rem; bottom: .85rem; left: 1rem; font-size: .72rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ansa-training-track,
+  .ansa-training-arrow,
+  .ansa-training-dots button { transition: none; }
+}
 
 
 /* =====================================================================
