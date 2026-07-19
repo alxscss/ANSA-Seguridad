@@ -93,7 +93,7 @@
     <div class="container">
         
         <a class="navbar-brand d-flex align-items-center" href="index.html">
-    <img src="img/logo-ansa.png" alt="ANSA Seguridad Privada" class="ansa-logo me-2" width="383" height="351" loading="eager">
+    <img src="img/logo-ansa.png" alt="ANSA Seguridad Privada" class="ansa-logo me-2" width="400" height="500" loading="eager">
     <span class="ansa-brand-text fw-bold text-white">
         <span class="ansa-seguridad">ANSA Seguridad Privada</span>
     </span>
@@ -607,6 +607,83 @@
       </div>
  
     </div>
+
+    <!-- CAPACITACIÓN ANSA — visor deslizable con imágenes independientes -->
+    <section id="capacitacion" class="ansa-training" aria-labelledby="capacitacion-title" data-aos="fade-up">
+      <div class="ansa-training-copy">
+        <h3 id="capacitacion-title">Capacitación ANSA</h3>
+        <div class="ansa-training-line" aria-hidden="true"></div>
+        <p>
+          En ANSA capacitamos a cada elemento en las consignas básicas del servicio de seguridad y, antes de incorporarlo a su puesto, reforzamos directamente las consignas específicas de cada cliente. Así, el personal conoce los protocolos, prioridades y alcances particulares del servicio para atender satisfactoriamente cada rubro contratado.
+        </p>
+
+        <ol class="ansa-training-steps" aria-label="Etapas de capacitación">
+          <li><span>01</span><strong>Consignas básicas</strong></li>
+          <li><span>02</span><strong>Inducción específica</strong></li>
+          <li><span>03</span><strong>Servicio alineado</strong></li>
+        </ol>
+
+        <p class="ansa-training-help">
+          <i class="fa-solid fa-hand-pointer" aria-hidden="true"></i>
+          Desliza la imagen o utiliza las flechas para avanzar.
+        </p>
+      </div>
+
+      <div class="ansa-training-slider" data-training-slider role="region"
+           aria-roledescription="carrusel" aria-label="Capacitación del personal ANSA" tabindex="0">
+        <div class="ansa-training-viewport" data-training-viewport>
+          <div class="ansa-training-track" data-training-track>
+            <figure class="ansa-training-slide is-active" data-training-slide role="group"
+                    aria-roledescription="diapositiva" aria-label="1 de 4" aria-hidden="false">
+              <img src="img/cap1.png" width="397" height="236"
+                   alt="Personal de seguridad ANSA durante una capacitación teórica en aula"
+                   loading="lazy" draggable="false">
+              <figcaption>Capacitación teórica</figcaption>
+            </figure>
+            <figure class="ansa-training-slide" data-training-slide role="group"
+                    aria-roledescription="diapositiva" aria-label="2 de 4" aria-hidden="true">
+              <img src="img/cap2.png" width="420" height="196"
+                   alt="Formación operativa del personal de seguridad ANSA"
+                   loading="lazy" draggable="false">
+              <figcaption>Formación operativa</figcaption>
+            </figure>
+            <figure class="ansa-training-slide" data-training-slide role="group"
+                    aria-roledescription="diapositiva" aria-label="3 de 4" aria-hidden="true">
+              <img src="img/cap3.png" width="412" height="215"
+                   alt="Personal ANSA realizando prácticas de campo"
+                   loading="lazy" draggable="false">
+              <figcaption>Prácticas de campo</figcaption>
+            </figure>
+            <figure class="ansa-training-slide" data-training-slide role="group"
+                    aria-roledescription="diapositiva" aria-label="4 de 4" aria-hidden="true">
+              <img src="img/cap4.png" width="336" height="165"
+                   alt="Ejercicios de preparación para personal de seguridad ANSA"
+                   loading="lazy" draggable="false">
+              <figcaption>Ejercicios de preparación</figcaption>
+            </figure>
+          </div>
+
+          <button type="button" class="ansa-training-arrow ansa-training-arrow--prev"
+                  data-training-prev aria-label="Ver imagen anterior">
+            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="ansa-training-arrow ansa-training-arrow--next"
+                  data-training-next aria-label="Ver imagen siguiente">
+            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="ansa-training-navigation">
+          <div class="ansa-training-dots" role="group" aria-label="Seleccionar imagen">
+            <button type="button" class="is-active" data-training-dot="0" aria-label="Ver imagen 1" aria-current="true"></button>
+            <button type="button" data-training-dot="1" aria-label="Ver imagen 2" aria-current="false"></button>
+            <button type="button" data-training-dot="2" aria-label="Ver imagen 3" aria-current="false"></button>
+            <button type="button" data-training-dot="3" aria-label="Ver imagen 4" aria-current="false"></button>
+          </div>
+          <span class="ansa-training-counter" data-training-counter aria-live="polite">01 / 04</span>
+        </div>
+      </div>
+    </section>
  
     <!-- ── RESPONSABILIDADES ──────────────────────────────────────── -->
     <h5 class="fw-bold mb-4 text-center text-uppercase" style="letter-spacing:.08em; font-size:.85rem; color:#6c757d;">
