@@ -180,11 +180,11 @@ html:not(.aos-ready) [data-aos] {
 
 .top-bar { background-color: var(--c-royal-deep); }
 
-.ansa-logo { height: 60px; width: auto; transition: height .3s ease; }
-@media (max-width: 1500px) { .ansa-logo { height: 70px; } }
-@media (max-width: 700px) {
-  .ansa-logo { height: 70px; }
-  .ansa-brand-text { font-size: 2.5rem; }
+.ansa-logo { height: 60px; width: auto; transition: height .2s ease; }
+@media (max-width: 1100px) { .ansa-logo { height: 60px; } }
+@media (max-width: 600px) {
+  .ansa-logo { height: 60px; }
+  .ansa-brand-text { font-size: 1.05rem; }
 }
 
 /* Letras del logo en blanco para que resalten en el fondo azul */
