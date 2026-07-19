@@ -910,6 +910,89 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
+  const trainingSlider = document.querySelector('[data-training-slider]');
+
+  if (trainingSlider) {
+    const viewport = trainingSlider.querySelector('[data-training-viewport]');
+    const track = trainingSlider.querySelector('[data-training-track]');
+    const slides = [...trainingSlider.querySelectorAll('[data-training-slide]')];
+    const dots = [...trainingSlider.querySelectorAll('[data-training-dot]')];
+    const previousButton = trainingSlider.querySelector('[data-training-prev]');
+    const nextButton = trainingSlider.querySelector('[data-training-next]');
+    const counter = trainingSlider.querySelector('[data-training-counter]');
+    let currentIndex = 0;
+    let pointerStartX = null;
+    let pointerDeltaX = 0;
+
+    const showTrainingSlide = (requestedIndex) => {
+      currentIndex = (requestedIndex + slides.length) % slides.length;
+      track.style.transition = '';
+      track.style.transform = `translate3d(-${currentIndex * 100}%, 0, 0)`;
+
+      slides.forEach((slide, index) => {
+        const isActive = index === currentIndex;
+        slide.classList.toggle('is-active', isActive);
+        slide.setAttribute('aria-hidden', String(!isActive));
+      });
+
+      dots.forEach((dot, index) => {
+        const isActive = index === currentIndex;
+        dot.classList.toggle('is-active', isActive);
+        dot.setAttribute('aria-current', String(isActive));
+      });
+
+      counter.textContent = `${String(currentIndex + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+    };
+
+    previousButton.addEventListener('click', () => showTrainingSlide(currentIndex - 1));
+    nextButton.addEventListener('click', () => showTrainingSlide(currentIndex + 1));
+    dots.forEach(dot => dot.addEventListener('click', () => showTrainingSlide(Number(dot.dataset.trainingDot))));
+
+    trainingSlider.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        showTrainingSlide(currentIndex - 1);
+      }
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        showTrainingSlide(currentIndex + 1);
+      }
+    });
+
+    viewport.addEventListener('pointerdown', event => {
+      if (event.target.closest('[data-training-prev], [data-training-next]')) return;
+      if (event.pointerType === 'mouse' && event.button !== 0) return;
+      pointerStartX = event.clientX;
+      pointerDeltaX = 0;
+      viewport.setPointerCapture?.(event.pointerId);
+    });
+
+    viewport.addEventListener('pointermove', event => {
+      if (pointerStartX === null) return;
+      pointerDeltaX = event.clientX - pointerStartX;
+      track.style.transition = 'none';
+      track.style.transform = `translate3d(calc(-${currentIndex * 100}% + ${pointerDeltaX}px), 0, 0)`;
+    });
+
+    const finishTrainingSwipe = () => {
+      if (pointerStartX === null) return;
+      const swipeThreshold = Math.min(70, viewport.clientWidth * .16);
+
+      if (Math.abs(pointerDeltaX) >= swipeThreshold) {
+        showTrainingSlide(currentIndex + (pointerDeltaX < 0 ? 1 : -1));
+      } else {
+        showTrainingSlide(currentIndex);
+      }
+
+      pointerStartX = null;
+      pointerDeltaX = 0;
+    };
+
+    viewport.addEventListener('pointerup', finishTrainingSwipe);
+    viewport.addEventListener('pointercancel', finishTrainingSwipe);
+    showTrainingSlide(0);
+  }
+
   document.querySelectorAll('[data-current-year]').forEach(el => {
     el.textContent = new Date().getFullYear();
   });
