@@ -180,7 +180,7 @@ html:not(.aos-ready) [data-aos] {
 
 .top-bar { background-color: var(--c-royal-deep); }
 
-.ansa-logo { height: 70px; width: auto; transition: height .3s ease; }
+.ansa-logo { height: 60px; width: auto; transition: height .3s ease; }
 @media (max-width: 1500px) { .ansa-logo { height: 70px; } }
 @media (max-width: 700px) {
   .ansa-logo { height: 70px; }
